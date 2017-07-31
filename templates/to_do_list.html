@@ -6,7 +6,9 @@
 <body>
 	<h1>To Do List</h1>
 	<ul>
-		<li>{{saved_fact}}</li>
+		{% for saved_fact in fact_list%}
+			<li>{{saved_fact}}</li>
+		{% endfor %}
 	</ul>
 </body>
 </html>
