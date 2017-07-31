@@ -21,15 +21,33 @@ import urllib2
 import jinja2
 import os
 from google.appengine.ext import ndb
+<<<<<<< HEAD
+=======
+# from bs4 import BeautifulSoup
+
+fact_list = []
+>>>>>>> ba8a18f44ca3ce2e75c010cdb0514cde3c296976
 
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
+<<<<<<< HEAD
 class ToDoList(ndb.Model):
 	pass
 
 		
 
+=======
+
+# with open("/templates/spotify.html") as fp:
+#     soup = BeautifulSoup(fp)
+
+# soup = BeautifulSoup("<html>data</html>")
+
+class ToDoList(ndb.Model):
+	pass
+
+>>>>>>> ba8a18f44ca3ce2e75c010cdb0514cde3c296976
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write('Hello world!')
@@ -40,17 +58,29 @@ class DecadeHandler(webapp2.RequestHandler):
 		self.response.write(template.render())
 		self.response.write('Decades')
 	def post(self):
+<<<<<<< HEAD
 		template = jinja_environment.get_template('/templates/to_do_list.html')
 		saved_fact = self.request.get("saved_fact")
 		print saved_fact
 		variables = {"saved_fact":saved_fact}
+=======
+		template = jinja_environment.get_template('/templates/spotify.html')
+		saved_fact = self.request.get("saved_fact")
+		fact_list.append(saved_fact)
+		print saved_fact
+		variables = {"fact_list":fact_list}
+>>>>>>> ba8a18f44ca3ce2e75c010cdb0514cde3c296976
 		print variables
 		self.response.write(template.render(variables))
 
 class ToDoListHandler(webapp2.RequestHandler):
 	def get(self):
 		template = jinja_environment.get_template('/templates/to_do_list.html')
+<<<<<<< HEAD
 		self.response.write(template.render())
+=======
+		self.response.write(template.render(variables))
+>>>>>>> ba8a18f44ca3ce2e75c010cdb0514cde3c296976
 		self.response.write('To Do List')
 
 
