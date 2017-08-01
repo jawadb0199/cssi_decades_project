@@ -1,0 +1,40 @@
+body{
+  background-image: url("http://smartfuse.s3.amazonaws.com/ea6cf035faea6cf035fae/uploads/2016/07/decades-logo.png");
+  background-attachment: fixed;
+  background-size: cover;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+h1{
+  font-family: fantasy;
+  color: white;
+  text-align: center;
+  font-size: 45;
+}
+
+.tablink {
+    background-color: red;
+    color: white;
+    float: left;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 14px 16px;
+    font-size: 17px;
+    width: 25%;
+}
+
+/* Change background color of buttons on hover */
+.tablink:hover {
+    background-color: #777;
+}
+
+/* Set default styles for tab content */
+.tabcontent {
+    color: white;
+    display: none;
+    padding: 50px;
+    text-align: center;
+}

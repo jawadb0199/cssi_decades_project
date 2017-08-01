@@ -21,21 +21,17 @@ import urllib2
 import jinja2
 import os
 from google.appengine.ext import ndb
-# from bs4 import BeautifulSoup
 
 fact_list = []
+variables = {'fact_list': fact_list}
 
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
-
-# with open("/templates/spotify.html") as fp:
-#     soup = BeautifulSoup(fp)
-
-# soup = BeautifulSoup("<html>data</html>")
-
 class ToDoList(ndb.Model):
 	pass
+
+
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -51,13 +47,22 @@ class DecadeHandler(webapp2.RequestHandler):
 		saved_fact = self.request.get("saved_fact")
 		fact_list.append(saved_fact)
 		print saved_fact
-		variables = {"fact_list":fact_list}
+		# variables["fact_list"] = fact_list
 		print variables
-		self.response.write(template.render(variables))
+		self.response.write(template.render())
 
 class ToDoListHandler(webapp2.RequestHandler):
 	def get(self):
 		template = jinja_environment.get_template('/templates/to_do_list.html')
+		print variables
+		self.response.write(template.render(variables))
+	def post(self):
+		template = jinja_environment.get_template('/templates/to_do_list.html')
+		deleted_fact = self.request.get("deleted_fact")
+		fact_list.remove(deleted_fact)
+		print deleted_fact
+		# variables["fact_list"] = fact_list
+		print variables
 		self.response.write(template.render(variables))
 
 
