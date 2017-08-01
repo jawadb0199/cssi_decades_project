@@ -1,5 +1,5 @@
 h3{
-  font-weight: 800;
+  font-family: anton;
 }
 
 #shows {
@@ -63,8 +63,7 @@ width:400px;
 padding-right: 10px;
 height:200px;
 }
-=======
->>>>>>> 94b7cc2143fc1089ca04c754294d4cf252d6ffe2
+
 #seinfeldPic{
   width: 400px;
   padding-right: 10px;
@@ -91,4 +90,5 @@ body{
   background-image: url("http://i.imgur.com/CFjU41M.jpg");
   background-attachment: fixed;
   background-size: cover;
+  font-family:
 }
