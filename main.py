@@ -28,10 +28,25 @@ variables = {'fact_list' : fact_list}
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
+class Feedback(ndb.Model):
+    # Feedback to send to datastoe
+    email = ndb.StringProperty()
+    name = ndb.StringProperty()
+    rating = ndb.IntegerProperty()
+    comment = ndb.StringProperty()
+
 class FeedbackHandler(webapp2.RequestHandler):
     def get(self):
-        template=jinja_environment.get_template('templates/input_feedback.html')
+        template = jinja_environment.get_template('/templates/input_feedback.html')
         self.response.write(template.render())
+    def post(self):
+        template = jinja_environment.get_template('/templates/output_feedback.html')
+        name = self.response.get('name')
+        email = self.response.get('email')
+        rating = int(self.response.get('rating'))
+        comment = self.response.get('comment')
+        new_feedback = Feedback(name = name, email = email, rating = rating, comment = comment)
+        new_feedback.put()
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
