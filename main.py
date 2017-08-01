@@ -29,19 +29,6 @@ variables = {'fact_list': fact_list}
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
-class Feedback(ndb.Model):
-    email = ndb.StringProperty()
-    name = ndb.StringProperty()
-    rating = ndb
-    comment = ndb.StringProperty()
-
-
-class FeedbackHandler(webapp2.RequestHandler):
-    def get(self):
-        # template = jinja_environment.get_template('/templates/homepage.html')
-        self.response.write('Feedback')
-
-
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write('Hello world!')
@@ -120,6 +107,5 @@ app = webapp2.WSGIApplication([
     ('/90sFunFacts', NintiesFunFactsHandler),
     ('/90sSpecialEventsNews', NintiesSpecialEventsNewsHandler),
     ('/decade', DecadeHandler),
-    ('/todolist', ToDoListHandler),
-    ('feedback', FeedbackHandler)
+    ('/todolist', ToDoListHandler)
 ], debug=True)
