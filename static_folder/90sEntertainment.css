@@ -9,7 +9,16 @@
   background-color: black;
   margin-right: 10px;
   margin-left: 150px;
-
+  margin-top: 20px;
+  height: 1310px;
+}
+#mariopic{
+  width:200px;
+  height:200px;
+}
+#secretOfMokeyIslandPic{
+  width:200px;
+  height:200px;
 }
 #title{
   padding-left: 500px;
@@ -25,6 +34,7 @@
 #legendOfZelda{
    width:200px;
    height:200px;
+   padding-right: 10px;
    display: flex;
  }
 #megaMan{
@@ -42,9 +52,6 @@
   padding-right: 10px;
 }
 
-#freshPrincePic{
-
-}
 #seinfeldPic{
   width: 400px;
   padding-right: 10px;

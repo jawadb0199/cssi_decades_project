@@ -1,0 +1,14 @@
+body{
+  background-image: url("https://a.dilcdn.com/bl/wp-content/uploads/sites/24/2014/09/pattern_darkwingduck.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  color: #00CED1;
+}
+
+#facts{
+  background-color: #696969;
+}
+#pabloPic{
+  width: 450px;
+  height:450px;
+}
