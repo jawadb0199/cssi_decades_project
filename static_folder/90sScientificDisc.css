@@ -1,0 +1,28 @@
+body{
+  background-image: url("https://ak5.picdn.net/shutterstock/videos/15389950/thumb/10.jpg?i10c=img.resize(height:160)");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+h1{
+  color: white;
+  font-size: 50px;
+
+}
+ ul{
+   color: white;
+   font-size: 30px;
+ }
+ #Photoshop{
+  display: flex;
+}
+
+#Internet{
+  height: 400px;
+  width: 650px;
+}
+
+#linux{
+  height: 400px;
+  width: 650px;
+}

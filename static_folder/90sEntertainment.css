@@ -1,3 +1,7 @@
+h3{
+  font-weight: 800;
+}
+
 #shows {
   color: #DC143C;
   background-color: black;
@@ -9,13 +13,23 @@
   background-color: black;
   margin-right: 10px;
   margin-left: 150px;
-
+  margin-top: 20px;
+  height: 1310px;
+}
+#mariopic{
+  width:200px;
+  height:200px;
+}
+#secretOfMokeyIslandPic{
+  width:200px;
+  height:200px;
 }
 #title{
   padding-left: 500px;
   padding-top: 10px;
   background-color: black;
   color: white;
+  font-family: Jazz LET, fantasy;
 }
 #movies{
   color: #DC143C;
@@ -25,6 +39,7 @@
 #legendOfZelda{
    width:200px;
    height:200px;
+   padding-right: 10px;
    display: flex;
  }
 #megaMan{
@@ -42,30 +57,36 @@
   padding-right: 10px;
 }
 
+<<<<<<< HEAD
 #freshPrincePic{
-
+width:400px;
+padding-right: 10px;
+height:200px;
 }
+=======
+>>>>>>> 94b7cc2143fc1089ca04c754294d4cf252d6ffe2
 #seinfeldPic{
   width: 400px;
   padding-right: 10px;
+  height: 200px;
 }
 #simpsonsPic{
-  width: 200px;
+  width: 400px;
   padding-right: 10px;
+  height: 200px;
 }
 
 #boyMeetsWorldPic{
   width: 200px;
   padding-right: 10px;
+  text-align: center;
 }
 #parent{
   display: flex; /*Always need for flex positioning*/
   justify-content: center;
-  font-family: Jazz LET, fantasy;s
+  font-family: Jazz LET, fantasy;
 }
-h3{
-  font-weight: bolder;
-}
+
 body{
   background-image: url("http://i.imgur.com/CFjU41M.jpg");
   background-attachment: fixed;

@@ -24,10 +24,20 @@ from google.appengine.ext import ndb
 
 
 fact_list = []
-variables = {'fact_list': fact_list}
-
+variables = {'fact_list' : fact_list}
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
+
+class Feedback(ndb.Model):
+    email = ndb.StringProperty()
+    name = ndb.StringProperty()
+    rating = ndb
+    comment = ndb.StringProperty()
+
+class FeedbackHandler(webapp2.RequestHandler):
+    def get(self):
+        # template = jinja_environment.get_template('/templates/homepage.html')
+        self.response.write('Feedback')
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -40,6 +50,7 @@ class HomePageHandler(webapp2.RequestHandler):
     def post (self):
         template = jinja_environment.get_template('/templates/1990s.html')
         self.response.write(template.render())
+
 # this section is just for the 1990s Handlers
 class NintiesPageHandler(webapp2.RequestHandler):
     def get(self):
@@ -63,6 +74,8 @@ class NintiesFunFactsHandler(webapp2.RequestHandler):
     def get(self):
 		template = jinja_environment.get_template('/templates/90sFunFacts.html')
 		self.response.write(template.render())
+
+
 class NintiesSpecialEventsNewsHandler(webapp2.RequestHandler):
     def get(self):
 		template = jinja_environment.get_template('/templates/90sSpecialEventsNews.html')
@@ -107,5 +120,6 @@ app = webapp2.WSGIApplication([
     ('/90sFunFacts', NintiesFunFactsHandler),
     ('/90sSpecialEventsNews', NintiesSpecialEventsNewsHandler),
     ('/decade', DecadeHandler),
-    ('/todolist', ToDoListHandler)
+    ('/todolist', ToDoListHandler),
+    ('feedback', FeedbackHandler)
 ], debug=True)

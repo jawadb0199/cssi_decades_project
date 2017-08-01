@@ -1,0 +1,20 @@
+body{
+  background-image: url("http://i.imgur.com/kvvFj.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  color: white;
+}
+
+#ojPic{
+  width: 450px;
+  height: 450px;
+}
+
+#dollyPic{
+  width: 450px;
+  height: 450px;
+}
+
+#news{
+  font-size: 40px;
+}
