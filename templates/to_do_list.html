@@ -5,23 +5,25 @@
 </head>
 <body>
 	<h1>To Do List</h1>
-	<form method="post">
 	<ul>
 		{% for saved_fact in fact_list%}
 			{% if 'spotify' in saved_fact%}
 				<li>
-					<iframe src="{{saved_fact}}" height="380" frameborder="0" allowtransparency="true"></iframe>
-					<input value='{{saved_fact}}' type="text" name="deleted_fact" readonly="true">
-					<button>[-]</button>
+					<form method="post">
+						<iframe src="{{saved_fact}}" height="380" frameborder="0" allowtransparency="true"></iframe>
+						<input value='{{saved_fact}}' type="text" name="deleted_fact" readonly="true">
+						<button>[-]</button>
+					</form>
 				</li>
 			{% else %}
 				<li>{{saved_fact}}
-					<input value='{{saved_fact}}' type="text" name="deleted_fact" readonly="true">
-					<button>[-]</button>
-			</li>
+					<form method="post">
+						<input value='{{saved_fact}}' type="text" name="deleted_fact" readonly="true">
+						<button>[-]</button>
+					</form>
+				</li>
 			{% endif %}
 		{% endfor %}
 	</ul>
-	</form>
 </body>
 </html>
