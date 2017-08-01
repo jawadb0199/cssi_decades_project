@@ -5,24 +5,31 @@
   <body>
   <h1 id="title">Entertainment</h1>
   <section id= "parent">
-    <div class="box" id="games">
-      <h3> Top 5 Games</h3>
-      <ul>
-        <li>Super Mario Bros created in 1990</li>
-        <img id= "mariopic"src= "http://ocremix.org/files/images/games/snes/8/super-mario-world-snes-title-1603.gif"/>
-        <li>Secret of of Monkey Island  created in 1992</li>
-        <img id= "secretOfMokeyIslandPic"src= "https://upload.wikimedia.org/wikipedia/en/a/a8/The_Secret_of_Monkey_Island_artwork.jpg"/>
-        <li>Legend of Zelda was created in 1990</li>
-        <img id= "legendOfZelda" src= "https://gamefaqs.akamaized.net/box/0/5/0/21050_front.jpg"/>
-        <li>Mega Man 3 was created in 1991</li>
-        <img id= "megaMan" src= "http://www.mobygames.com/images/covers/l/77923-mega-man-ii-game-boy-front-cover.jpg"/>
-        <li>Resident Evil in 1996</li>
-        <img id= "megaMan" src= "http://www.mobygames.com/images/covers/l/2919-resident-evil-windows-front-cover.jpg"/>
-      </ul>
-    </div>
-
+    <div id= "musicngames">
+      <div class="box" id="games">
+        <h3> Top 5 Games</h3>
+        <ul>
+          <li>Super Mario Bros created in 1990</li>
+          <img id= "mariopic"src= "http://ocremix.org/files/images/games/snes/8/super-mario-world-snes-title-1603.gif"/>
+          <li>Secret of of Monkey Island  created in 1992</li>
+          <img id= "secretOfMokeyIslandPic"src= "https://upload.wikimedia.org/wikipedia/en/a/a8/The_Secret_of_Monkey_Island_artwork.jpg"/>
+          <li>Legend of Zelda was created in 1990</li>
+          <img id= "legendOfZelda" src= "https://gamefaqs.akamaized.net/box/0/5/0/21050_front.jpg"/>
+          <li>Mega Man 3 was created in 1991</li>
+          <img id= "megaMan" src= "http://www.mobygames.com/images/covers/l/77923-mega-man-ii-game-boy-front-cover.jpg"/>
+          <li>Resident Evil in 1996</li>
+          <img id= "megaMan" src= "http://www.mobygames.com/images/covers/l/2919-resident-evil-windows-front-cover.jpg"/>
+        </ul>
+      </div>
+      <div class= "box" id="music" >
+        <form  id= "musicPlaylist" method="post">
+    		    <iframe src="https://open.spotify.com/embed?uri=spotify%3Auser%3Aslangner%3Aplaylist%3A1GtXrEYSoB73vqT9rl7l87" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+    		    <input value='https://open.spotify.com/embed?uri=spotify%3Auser%3Aslangner%3Aplaylist%3A1GtXrEYSoB73vqT9rl7l87' type="text" name="saved_fact" readonly="true">
+    				<!-- <button>[+]</button> -->
+    	  </form>
+        </div>
+      </div>
     <div class="box" id= "shows">
-      <h1 id= "TV Shows"></h1>
       <h3> Top 5 TV Shows</h3>
       <ul>
         <li>Friends: 1994-2004</li>
@@ -39,11 +46,10 @@
     </div>
 
     <div class="box" id="movies">
-      <h1 id= "Moives"></h1>
       <h3> Top 5 Moives</h3>
       <ul>
         <li>Pulp Fiction: 1994</li>
-         <iframe width="560" height="315" src="https://www.youtube.com/embed/ewlwcEBTvcg" frameborder="0" allowfullscreen></iframe>
+         <iframe id="pulpFictionVid" width="560" height="315" src="https://www.youtube.com/embed/ewlwcEBTvcg" frameborder="0" allowfullscreen></iframe>
         <li>Jurassic Park: 1993</li>
         <iframe width="560" height="315" src="https://www.youtube.com/embed/lc0UehYemQA" frameborder="0" allowfullscreen></iframe>
         <li>Toy Story: 1995</li>
