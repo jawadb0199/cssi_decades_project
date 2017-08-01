@@ -20,24 +20,31 @@ import logging
 import urllib2
 import jinja2
 import os
+
 from google.appengine.ext import ndb
-<<<<<<< HEAD
-=======
+
 # from bs4 import BeautifulSoup
 
 fact_list = []
->>>>>>> ba8a18f44ca3ce2e75c010cdb0514cde3c296976
+jinja_environment = jinja2.Environment(
+    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
+
+
+
+
+fact_list = []
+variables = {'fact_list': fact_list}
 
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
-<<<<<<< HEAD
+
 class ToDoList(ndb.Model):
 	pass
 
-		
 
-=======
+
+
 
 # with open("/templates/spotify.html") as fp:
 #     soup = BeautifulSoup(fp)
@@ -47,45 +54,104 @@ class ToDoList(ndb.Model):
 class ToDoList(ndb.Model):
 	pass
 
->>>>>>> ba8a18f44ca3ce2e75c010cdb0514cde3c296976
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write('Hello world!')
 
+class HomePageHandler(webapp2.RequestHandler):
+        def get(self):
+    		template = jinja_environment.get_template('/templates/homepage.html')
+    		self.response.write(template.render())
+        def post (self):
+            template = jinja_environment.get_template('/templates/1990s.html')
+            self.response.write(template.render())
+
+# this section is just for the 1990s Handlers
+class NintiesPageHandler(webapp2.RequestHandler):
+        def get(self):
+    		template = jinja_environment.get_template('/templates/1990s.html')
+    		self.response.write(template.render())
+        def post (self):
+            template = jinja_environment.get_template('/templates/90sEntertainment.html')
+            self.response.write(template.render())
+
+class NintiesEntertainmentHandler(webapp2.RequestHandler):
+        def get(self):
+    		template = jinja_environment.get_template('/templates/90sEntertainment.html')
+    		self.response.write(template.render())
+
+class NintiesScientificDiscHandler(webapp2.RequestHandler):
+        def get(self):
+    		template = jinja_environment.get_template('/templates/90sScientificDisc.html')
+    		self.response.write(template.render())
+
+class NintiesFunFactsHandler(webapp2.RequestHandler):
+        def get(self):
+    		template = jinja_environment.get_template('/templates/90sFunFacts.html')
+    		self.response.write(template.render())
+class NintiesSpecialEventsNewsHandler(webapp2.RequestHandler):
+        def get(self):
+    		template = jinja_environment.get_template('/templates/90sSpecialEventsNews.html')
+    		self.response.write(template.render())
 class DecadeHandler(webapp2.RequestHandler):
 	def get(self):
 		template = jinja_environment.get_template('/templates/spotify.html')
 		self.response.write(template.render())
 		self.response.write('Decades')
 	def post(self):
-<<<<<<< HEAD
+
+
 		template = jinja_environment.get_template('/templates/to_do_list.html')
 		saved_fact = self.request.get("saved_fact")
 		print saved_fact
 		variables = {"saved_fact":saved_fact}
-=======
+
 		template = jinja_environment.get_template('/templates/spotify.html')
 		saved_fact = self.request.get("saved_fact")
 		fact_list.append(saved_fact)
 		print saved_fact
+
 		variables = {"fact_list":fact_list}
->>>>>>> ba8a18f44ca3ce2e75c010cdb0514cde3c296976
+
+
+		# variables["fact_list"] = fact_list
+
 		print variables
-		self.response.write(template.render(variables))
+		self.response.write(template.render())
+
 
 class ToDoListHandler(webapp2.RequestHandler):
 	def get(self):
 		template = jinja_environment.get_template('/templates/to_do_list.html')
-<<<<<<< HEAD
+
+
 		self.response.write(template.render())
-=======
+
 		self.response.write(template.render(variables))
->>>>>>> ba8a18f44ca3ce2e75c010cdb0514cde3c296976
+
 		self.response.write('To Do List')
+
+		print variables
+		self.response.write(template.render(variables))
+	def post(self):
+		template = jinja_environment.get_template('/templates/to_do_list.html')
+		deleted_fact = self.request.get("deleted_fact")
+		fact_list.remove(deleted_fact)
+		print deleted_fact
+		# variables["fact_list"] = fact_list
+		print variables
+		self.response.write(template.render(variables))
 
 
 app = webapp2.WSGIApplication([
     ('/', MainHandler),
+    ('/homepage', HomePageHandler),
+    ('/1990s', NintiesPageHandler),
+    ('/90sEntertainment', NintiesEntertainmentHandler),
+    ('/90sScientificDisc', NintiesScientificDiscHandler),
+    ('/90sFunFacts', NintiesFunFactsHandler),
+    ('/90sSpecialEventsNews', NintiesSpecialEventsNewsHandler),
     ('/decade', DecadeHandler),
     ('/todolist', ToDoListHandler)
 ], debug=True)
