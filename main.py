@@ -59,7 +59,6 @@ class ToDoListHandler(webapp2.RequestHandler):
 	def get(self):
 		template = jinja_environment.get_template('/templates/to_do_list.html')
 		self.response.write(template.render(variables))
-		self.response.write('To Do List')
 
 
 app = webapp2.WSGIApplication([
