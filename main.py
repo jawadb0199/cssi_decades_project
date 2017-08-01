@@ -22,6 +22,7 @@ import jinja2
 import os
 
 from google.appengine.ext import ndb
+<<<<<<< HEAD
 
 # from bs4 import BeautifulSoup
 
@@ -30,10 +31,20 @@ jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
 
+=======
+
+fact_list = []
+variables = {'fact_list': fact_list}
+
+jinja_environment = jinja2.Environment(
+    loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
+
+>>>>>>> 8000562ab8c7a58c917c43be15f05afea6d8d70c
 class ToDoList(ndb.Model):
 	pass
 
 
+<<<<<<< HEAD
 
 
 # with open("/templates/spotify.html") as fp:
@@ -45,6 +56,9 @@ class ToDoList(ndb.Model):
 	pass
 
 
+=======
+
+>>>>>>> 8000562ab8c7a58c917c43be15f05afea6d8d70c
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write('Hello world!')
@@ -89,31 +103,51 @@ class DecadeHandler(webapp2.RequestHandler):
 		self.response.write(template.render())
 		self.response.write('Decades')
 	def post(self):
+<<<<<<< HEAD
 
 		template = jinja_environment.get_template('/templates/to_do_list.html')
 		saved_fact = self.request.get("saved_fact")
 		print saved_fact
 		variables = {"saved_fact":saved_fact}
 
+=======
+>>>>>>> 8000562ab8c7a58c917c43be15f05afea6d8d70c
 		template = jinja_environment.get_template('/templates/spotify.html')
 		saved_fact = self.request.get("saved_fact")
 		fact_list.append(saved_fact)
 		print saved_fact
+<<<<<<< HEAD
 		variables = {"fact_list":fact_list}
 
+=======
+		# variables["fact_list"] = fact_list
+>>>>>>> 8000562ab8c7a58c917c43be15f05afea6d8d70c
 		print variables
-		self.response.write(template.render(variables))
+		self.response.write(template.render())
 
 
 class ToDoListHandler(webapp2.RequestHandler):
 	def get(self):
 		template = jinja_environment.get_template('/templates/to_do_list.html')
+<<<<<<< HEAD
 
 		self.response.write(template.render())
 
 		self.response.write(template.render(variables))
 
 		self.response.write('To Do List')
+=======
+		print variables
+		self.response.write(template.render(variables))
+	def post(self):
+		template = jinja_environment.get_template('/templates/to_do_list.html')
+		deleted_fact = self.request.get("deleted_fact")
+		fact_list.remove(deleted_fact)
+		print deleted_fact
+		# variables["fact_list"] = fact_list
+		print variables
+		self.response.write(template.render(variables))
+>>>>>>> 8000562ab8c7a58c917c43be15f05afea6d8d70c
 
 
 app = webapp2.WSGIApplication([
