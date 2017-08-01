@@ -1,0 +1,73 @@
+#shows {
+  color: #DC143C;
+  background-color: black;
+  margin-right:100px;
+}
+
+#games{
+  color: #DC143C;
+  background-color: black;
+  margin-right: 10px;
+  margin-left: 150px;
+
+}
+#title{
+  padding-left: 500px;
+  padding-top: 10px;
+  background-color: black;
+  color: white;
+}
+#movies{
+  color: #DC143C;
+  margin-right: 50px;
+  background-color: black;
+}
+#legendOfZelda{
+   width:200px;
+   height:200px;
+   display: flex;
+ }
+#megaMan{
+  width:200px;
+  height:200px;
+  display: flex;
+}
+#pulpFictionVid{
+  color: #DC143C;
+  padding-right:30px;
+  background-color: black;
+}
+#friendsPic{
+  width: 400px;
+  padding-right: 10px;
+}
+
+#freshPrincePic{
+
+}
+#seinfeldPic{
+  width: 400px;
+  padding-right: 10px;
+}
+#simpsonsPic{
+  width: 200px;
+  padding-right: 10px;
+}
+
+#boyMeetsWorldPic{
+  width: 200px;
+  padding-right: 10px;
+}
+#parent{
+  display: flex; /*Always need for flex positioning*/
+  justify-content: center;
+  font-family: Jazz LET, fantasy;s
+}
+h3{
+  font-weight: bolder;
+}
+body{
+  background-image: url("http://i.imgur.com/CFjU41M.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+}
