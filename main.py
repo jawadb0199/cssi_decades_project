@@ -48,6 +48,7 @@ class FeedbackHandler(webapp2.RequestHandler):
         comment = self.request.get('comment')
         new_feedback = Feedback(name = name, email = email, rating = rating, comment = comment)
         new_feedback.put()
+        self.response.write(template.render())
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -101,6 +102,7 @@ class DecadeHandler(webapp2.RequestHandler):
         template = jinja_environment.get_template('/templates/spotify.html')
         saved_fact = self.request.get("saved_fact")
         list_item = self.request.get('list_item')
+        print list_item
         if saved_fact not in fact_list:
             fact_list.append(saved_fact)
         if list_item not in item_list:
