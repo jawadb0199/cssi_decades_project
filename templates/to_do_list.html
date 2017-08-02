@@ -8,28 +8,29 @@
 	<ul>
 		{% for saved_fact in fact_list%}
 			{% for list_item in item_list%}
-			{% if 'spotify' in saved_fact%}
-				<li>
-					<form method="post">
-						<iframe src="{{saved_fact}}" height="380" frameborder="0" allowtransparency="true"></iframe>
-						<input value='{{saved_fact}}' type="text" name="deleted_fact" readonly="true">
-						<button>[-]</button>
-					</form>
-				</li>
-			{% elif 'youtube' in saved_fact%}
-				<li>{{ list_item }}
-					<form method="post">
-						<iframe src="{{saved_fact}}" width='560' height="315" frameborder="0"></iframe>
-						<input value='{{saved_fact}}' type="text" name="deleted_fact" readonly="true">
-						<button>[-]</button>
-					</form>
-			{% else %}
-				<li>{{saved_fact}}</li>
-					<form method="post">
-						<input value='{{saved_fact}}' type="text" name="deleted_fact" readonly="true">
-						<button>[-]</button>
-					</form>
-			{% endif %}
+				{% if 'spotify' in saved_fact and 'Music' in list_item %}
+					<li>{{list_item}}</li>
+						<form method="post">
+							<iframe src="{{saved_fact}}" height="380" frameborder="0" allowtransparency="true"></iframe>
+							<input value='{{saved_fact}}' type="text" name="deleted_fact" readonly="true">
+							<button>[-]</button>
+						</form>
+				{% elif 'youtube' in saved_fact and ': 19' in list_item%}
+				<!-- Items with youtube embed links and '19' in caption for the year to -->
+					<li>{{ list_item }}</li>
+						<form method="post">
+							<iframe src="{{saved_fact}}" width='560' height="315" frameborder="0"></iframe>
+							<input value='{{saved_fact}}' type="text" name="deleted_fact" readonly="true">
+							<button>[-]</button>
+						</form>
+				{% elif '.jpg' in saved_fact and '(19' in list_item%}
+					<li>{{list_item}}</li>
+						<form method="post">
+							<img src="{{saved_fact}}">
+							<input value='{{saved_fact}}' type="text" name="deleted_fact" readonly="true">
+							<button>[-]</button>
+						</form>
+				{% endif %}
 			{% endfor %}
 		{% endfor %}
 	</ul>
