@@ -1,0 +1,39 @@
+#summary {
+  width:500px;
+  height:500px;
+  margin-left: 400px;
+  color: white;
+  background-color: #FF1493;
+  padding: 50px;
+  border: 3px solid #FF1493;
+  text-align: center;
+  font-size: 23px;
+}
+
+#mainPic{
+width:500px;
+height:500px;
+display: flex;
+padding-left: 450px;
+}
+
+.tablink {
+  background-color: #1E90FF;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
+body{
+  background-image: url("http://www.extremetech.com/wp-content/uploads/2014/04/windows-xp-default3.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  font-family: fantasy;
+
+}

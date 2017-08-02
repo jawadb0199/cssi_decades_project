@@ -1,0 +1,40 @@
+body{
+  background-image: url("http://media.gettyimages.com/videos/black-panther-walking-across-a-white-backdrop-as-it-gets-closer-and-video-idmr_00092947?s=640x640");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
+
+h1{
+  color: black;
+  font-size: 50px;
+
+}
+ ul{
+   color: black;
+   font-size: 30px;
+ }
+ #ipod{
+  display: flex;
+}
+
+#DNA{
+  height: 400px;
+  width: 650px;
+}
+
+#sixthSense{
+  height: 400px;
+  width: 650px;
+}
+.tablink {
+  background-color: #9400D3;
+  color: black;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
+}
