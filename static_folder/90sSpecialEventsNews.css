@@ -2,6 +2,7 @@ body{
   background-image: url("http://i.imgur.com/kvvFj.jpg");
   background-attachment: fixed;
   background-size: cover;
+  background-position: center;
   color: white;
 }
 
@@ -17,4 +18,15 @@ body{
 
 #news{
   font-size: 40px;
+}
+.tablink {
+  background-color: #FF69B4;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
 }

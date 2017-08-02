@@ -2,6 +2,7 @@ body{
   background-image: url("https://a.dilcdn.com/bl/wp-content/uploads/sites/24/2014/09/pattern_darkwingduck.jpg");
   background-attachment: fixed;
   background-size: cover;
+  background-position: center;
   color: #00CED1;
 }
 
@@ -12,3 +13,13 @@ body{
   width: 450px;
   height:450px;
 }
+.tablink {
+  background-color: #00FFFF;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;

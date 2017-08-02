@@ -93,5 +93,20 @@ body{
   background-image: url("http://i.imgur.com/CFjU41M.jpg");
   background-attachment: fixed;
   background-size: cover;
+  background-position: center;
   font-family:
 }
+#title{
+  text-align:center;
+}
+
+.tablink {
+  background-color: red;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;

@@ -2,6 +2,7 @@ body{
   background-image: url("https://ak5.picdn.net/shutterstock/videos/15389950/thumb/10.jpg?i10c=img.resize(height:160)");
   background-attachment: fixed;
   background-size: cover;
+  background-position: center;
 }
 
 h1{
@@ -25,4 +26,15 @@ h1{
 #linux{
   height: 400px;
   width: 650px;
+}
+.tablink {
+  background-color: #9400D3;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;
 }

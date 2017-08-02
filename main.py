@@ -49,6 +49,8 @@ class FeedbackHandler(webapp2.RequestHandler):
         new_feedback = Feedback(name = name, email = email, rating = rating, comment = comment)
         new_feedback.put()
 
+
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write('Hello world!')
@@ -57,9 +59,9 @@ class HomePageHandler(webapp2.RequestHandler):
     def get(self):
 		template = jinja_environment.get_template('/templates/homepage.html')
 		self.response.write(template.render())
-    def post (self):
-        template = jinja_environment.get_template('/templates/1990s.html')
-        self.response.write(template.render())
+    # def post (self):
+    #     template = jinja_environment.get_template('/templates/1990s.html')
+    #     self.response.write(template.render())
 
 # this section is just for the 1990s Handlers
 class NintiesPageHandler(webapp2.RequestHandler):
