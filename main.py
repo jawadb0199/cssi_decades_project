@@ -24,7 +24,8 @@ from google.appengine.ext import ndb
 
 
 fact_list = []
-variables = {'fact_list' : fact_list}
+item_list = []
+variables = {'fact_list' : fact_list, 'item_list': item_list}
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
@@ -41,10 +42,10 @@ class FeedbackHandler(webapp2.RequestHandler):
         self.response.write(template.render())
     def post(self):
         template = jinja_environment.get_template('/templates/output_feedback.html')
-        name = self.response.get('name')
-        email = self.response.get('email')
-        rating = int(self.response.get('rating'))
-        comment = self.response.get('comment')
+        name = self.request.get('name')
+        email = self.request.get('email')
+        rating = int(self.request.get('rating'))
+        comment = self.request.get('comment')
         new_feedback = Feedback(name = name, email = email, rating = rating, comment = comment)
         new_feedback.put()
 
@@ -99,8 +100,11 @@ class DecadeHandler(webapp2.RequestHandler):
     def post(self):
         template = jinja_environment.get_template('/templates/spotify.html')
         saved_fact = self.request.get("saved_fact")
+        list_item = self.request.get('list_item')
         if saved_fact not in fact_list:
             fact_list.append(saved_fact)
+        if list_item not in item_list:
+            item_list.append(list_item)
         print saved_fact
         print variables
         self.response.write(template.render())
@@ -130,5 +134,5 @@ app = webapp2.WSGIApplication([
     ('/90sSpecialEventsNews', NintiesSpecialEventsNewsHandler),
     ('/decade', DecadeHandler),
     ('/todolist', ToDoListHandler),
-    ('feedback', FeedbackHandler)
+    ('/feedback', FeedbackHandler)
 ], debug=True)

@@ -7,6 +7,7 @@
 	<h1>To Do List</h1>
 	<ul>
 		{% for saved_fact in fact_list%}
+			{% for list_item in item_list%}
 			{% if 'spotify' in saved_fact%}
 				<li>
 					<form method="post">
@@ -15,14 +16,21 @@
 						<button>[-]</button>
 					</form>
 				</li>
+			{% elif 'youtube' in saved_fact%}
+				<li>{{ list_item }}
+					<form method="post">
+						<iframe src="{{saved_fact}}" width='560' height="315" frameborder="0"></iframe>
+						<input value='{{saved_fact}}' type="text" name="deleted_fact" readonly="true">
+						<button>[-]</button>
+					</form>
 			{% else %}
-				<li>{{saved_fact}}
+				<li>{{saved_fact}}</li>
 					<form method="post">
 						<input value='{{saved_fact}}' type="text" name="deleted_fact" readonly="true">
 						<button>[-]</button>
 					</form>
-				</li>
 			{% endif %}
+			{% endfor %}
 		{% endfor %}
 	</ul>
 </body>
