@@ -41,12 +41,19 @@ class FeedbackHandler(webapp2.RequestHandler):
         self.response.write(template.render())
     def post(self):
         template = jinja_environment.get_template('/templates/output_feedback.html')
-        name = self.response.get('name')
-        email = self.response.get('email')
-        rating = int(self.response.get('rating'))
-        comment = self.response.get('comment')
-        new_feedback = Feedback(name = name, email = email, rating = rating, comment = comment)
-        new_feedback.put()
+        # user_feedback = {
+        #   "name": self.response.get('name'),
+        #   "email": self.response.get('email'),
+        #   "rating" : self.response.get('rating'),
+        #   "comment" : self.response.get('comment')
+        #   }
+        self.response.write(template.render())
+        # name = self.response.get('name')
+        # email = self.response.get('email')
+        # rating = int(self.response.get('rating'))
+        # comment = self.response.get('comment')
+        # new_feedback = Feedback(name = name, email = email, rating = rating, comment = comment)
+        # new_feedback.put()
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
