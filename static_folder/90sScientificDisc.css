@@ -3,6 +3,7 @@ body{
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
+  text-align: center;
 }
 
 h1{
@@ -10,12 +11,12 @@ h1{
   font-size: 50px;
 
 }
- ul{
+ li{
    color: white;
    font-size: 30px;
  }
  #Photoshop{
-  display: flex;
+  text-align: center;
 }
 
 #Internet{

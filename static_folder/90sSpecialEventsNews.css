@@ -5,6 +5,9 @@ body{
   background-position: center;
   color: white;
 }
+li{
+text-align: center;
+}
 
 #ojPic{
   width: 450px;

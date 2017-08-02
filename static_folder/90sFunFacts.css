@@ -3,7 +3,7 @@ body{
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
-  color: #00CED1;
+  color: #9932CC;
 }
 
 #facts{
@@ -23,3 +23,6 @@ body{
   padding: 14px 16px;
   font-size: 17px;
   width: 25%;
+img{
+
+}
