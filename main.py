@@ -185,6 +185,54 @@ class TwoThousandsSpecialEventsNewsHandler(webapp2.RequestHandler):
 
 
 #End of 2000s Handlers
+
+#Beginning of 1980s Handlers
+class EightiesPageHandler(webapp2.RequestHandler):
+    def get(self):
+		template = jinja_environment.get_template('/templates/1980s.html')
+		self.response.write(template.render())
+
+
+class EightiesEntertainmentHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('/templates/80sEntertainment.html')
+        self.response.write(template.render())
+        # AddBookmark(self)
+    def post(self):
+        template = jinja_environment.get_template('/templates/80sEntertainment.html')
+        AddBookmark(self)
+        self.response.write(template.render())
+
+class EightiesScientificDiscHandler(webapp2.RequestHandler):
+    def get(self):
+		template = jinja_environment.get_template('/templates/80sScientificDisc.html')
+		self.response.write(template.render())
+    def post(self):
+        template = jinja_environment.get_template('/templates/80sScientificDischtml')
+        AddBookmark(self)
+        self.response.write(template.render())
+
+class EightiesFunFactsHandler(webapp2.RequestHandler):
+    def get(self):
+		template = jinja_environment.get_template('/templates/80sFunFacts.html')
+		self.response.write(template.render())
+    def post(self):
+        template = jinja_environment.get_template('/templates/80sFunFacts.html')
+        AddBookmark(self)
+        self.response.write(template.render())
+
+
+class EightiesSpecialEventsNewsHandler(webapp2.RequestHandler):
+    def get(self):
+		template = jinja_environment.get_template('/templates/80sSpecialEventsNews.html')
+		self.response.write(template.render())
+# End of 90s Handlers
+    def post(self):
+        template = jinja_environment.get_template('/templates/80sSpecialEventsNews.html')
+        AddBookmark(self)
+        self.response.write(template.render())
+
+#End of 80s Handlers
 class DecadeHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('/templates/spotify.html')
@@ -238,16 +286,24 @@ class ToDoListHandler(webapp2.RequestHandler):
 app = webapp2.WSGIApplication([
     # ('/', MainHandler),
     ('/', HomePageHandler),
+    #90s Links
     ('/1990s', NintiesPageHandler),
     ('/90sEntertainment', NintiesEntertainmentHandler),
     ('/90sScientificDisc', NintiesScientificDiscHandler),
     ('/90sFunFacts', NintiesFunFactsHandler),
     ('/90sSpecialEventsNews', NintiesSpecialEventsNewsHandler),
+    #2000s Links
     ('/2000s' ,TwoThousandsPageHandler),
     ('/00sEntertainment', TwoThousandsEntertainmentHandler),
     ('/00sFunfacts', TwoThousandsFunFactsHandler),
     ('/00sScientificDisc', TwoThousandsScientificDiscHandler),
     ('/00sSpecialEventsNews', TwoThousandsSpecialEventsNewsHandler),
+    #1980s Links
+    ('/1980s' ,EightiesPageHandler),
+    ('/80sEntertainment', EightiesEntertainmentHandler),
+    ('/80sFunfacts', EightiesFunFactsHandler),
+    ('/80sScientificDisc', EightiesScientificDiscHandler),
+    ('/80sSpecialEventsNews', EightiesSpecialEventsNewsHandler),
     ('/decade', DecadeHandler),
     ('/todolist', ToDoListHandler),
     ('/feedback', FeedbackHandler)

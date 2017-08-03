@@ -1,11 +1,11 @@
 #summary {
   width:500px;
-  height:520px;
+  height:500px;
   margin-left: 400px;
   color: white;
-  background-color: #FF6347;
+  background-color: #FF1493;
   padding: 50px;
-  border: 3px solid #FF6347;
+  border: 3px solid #FF1493;
   text-align: center;
   font-size: 23px;
 }
@@ -15,8 +15,7 @@ width:500px;
 height:500px;
 display: flex;
 padding-left: 450px;
-padding-right:450px;
-
+padding-right: 450px;
 }
 
 .tablink {
@@ -30,8 +29,12 @@ padding-right:450px;
   font-size: 17px;
   width: 20%;
 }
+
+h1{
+  color: white;
+}
 body{
-  background-image: url("http://www.extremetech.com/wp-content/uploads/2014/04/windows-xp-default3.jpg");
+  background-image: url("https://image.freepik.com/free-vector/memphis-background-with-eighties-objects_23-2147573891.jpg");
   background-attachment: fixed;
   background-size: cover;
   background-position: center;

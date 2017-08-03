@@ -5,40 +5,37 @@ h3{
 #shows {
   color: #DC143C;
   background-color: black;
-  margin-right:20px;
+  margin-right:100px;
 }
 #musicPlaylist{
   padding-right: 30px;
   height: 600px;
 }
-/*#musicngames{
+#musicngames{
   color: #DC143C;
   background-color: black;
   margin-right: 100px;
   padding-left: 250px;
   margin-left: 100px;
   height: 1820px;
-}*/
-#musicngames{
-  color: #DC143C;
-  background-color:black;
-  margin-right: 20px;
-  padding-left: 0px;
-  padding-right: 0px;
-  margin-left: 0px;
-  height: 1820px;
-  /*border: 3px solid orange;*/
 }
-
-#mariopic{
+#defenderpic{
   width:200px;
   height:200px;
 }
-#secretOfMokeyIslandPic{
+#tetrisPic{
   width:200px;
   height:200px;
 }
-#residentEvil{
+#pacMan{
+  width:200px;
+  height:200px;
+}
+#donkeyKong{
+  width:200px;
+  height:200px;
+}
+#galaga{
   width:200px;
   height:200px;
 }
@@ -100,17 +97,10 @@ height:200px;
   padding-right: 10px;
   text-align: center;
 }
-/*#parent{
-  display: flex; Always need for flex positioning
-  justify-content: center;
-  font-family: Jazz LET, fantasy;
-}*/
-
 #parent{
   display: flex; /*Always need for flex positioning*/
-  justify-content: space-evenly;
+  justify-content: center;
   font-family: Jazz LET, fantasy;
-  overflow-x: hidden;
 }
 
 body{
@@ -134,4 +124,3 @@ body{
   padding: 14px 16px;
   font-size: 17px;
   width: 25%;
-}
