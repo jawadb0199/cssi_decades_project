@@ -6,32 +6,31 @@
 <body>
 	<h1>To Do List</h1>
 	<ul>
-		{% for saved_fact in fact_list%}
-			{% for list_item in item_list%}
-				{% if 'spotify' in saved_fact and 'Music' in list_item %}
-					<li>{{list_item}}</li>
+		{% for bookmark in bookmarks %}
+		<!-- <div>{{bookmark}}</div> -->
+				{% if bookmark['type'] == 'spotify' %}
+					<li>{{ bookmark['caption'] }}</li>
 						<form method="post">
-							<iframe src="{{saved_fact}}" height="380" frameborder="0" allowtransparency="true"></iframe>
-							<input value='{{saved_fact}}' type="text" name="deleted_fact" readonly="true">
+							<iframe src="{{ bookmark['fact_url'] }}" height="380" frameborder="0" allowtransparency="true"></iframe>
+							<input value="{{bookmark['caption']}}" type="text" name="deleted_fact" readonly="true">
 							<button>[-]</button>
 						</form>
-				{% elif 'youtube' in saved_fact and ': 19' in list_item%}
+				{% elif bookmark['type'] == 'youtube' %}
 				<!-- Items with youtube embed links and '19' in caption for the year to -->
-					<li>{{ list_item }}</li>
+					<li>{{ bookmark['caption'] }}</li>
 						<form method="post">
-							<iframe src="{{saved_fact}}" width='560' height="315" frameborder="0"></iframe>
-							<input value='{{saved_fact}}' type="text" name="deleted_fact" readonly="true">
+							<iframe src="{{ bookmark['fact_url'] }}" width='560' height="315" frameborder="0"></iframe>
+							<input value="{{ bookmark['caption'] }}" type="text" name="deleted_fact" readonly="true">
 							<button>[-]</button>
 						</form>
-				{% elif '.jpg' in saved_fact and '(19' in list_item%}
-					<li>{{list_item}}</li>
+				{% elif bookmark['type'] == 'picture' %}
+					<li>{{bookmark['caption']}}</li>
 						<form method="post">
-							<img src="{{saved_fact}}">
-							<input value='{{saved_fact}}' type="text" name="deleted_fact" readonly="true">
+							<img src="{{ bookmark['fact_url'] }}">
+							<input value="{{ bookmark['caption'] }}" type="text" name="deleted_fact" readonly="true">
 							<button>[-]</button>
 						</form>
 				{% endif %}
-			{% endfor %}
 		{% endfor %}
 	</ul>
 </body>
