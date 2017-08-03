@@ -5,7 +5,7 @@ h3{
 #shows {
   color: #DC143C;
   background-color: black;
-  margin-right:100px;
+  margin-right:20px;
 }
 #csiPic{
   width: 400px;
@@ -42,11 +42,19 @@ height:200px;
 #musicngames{
   color: #DC143C;
   background-color:black;
-  margin-right: 100px;
-  padding-left: 250px;
-  margin-left: 100px;
+  margin-right: 20px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 0px;
   height: 1820px;
+  border: 3px solid orange;
 }
+
+#games{
+  padding-right: 0px;
+  border: 3px solid yellow;
+}
+
 #counterStrikepic{
   width:200px;
   height:200px;
@@ -65,12 +73,12 @@ height:200px;
 #hitman47{
   width:200px;
   height:200px;
-  display: flex;
+  /*display: flex;*/
 }
 #starTrekVoyager{
   width:200px;
   height:200px;
-  display: flex;
+  /*display: flex;*/
 }
 /*This section is for the movies */
 #movies{
@@ -88,8 +96,9 @@ height:200px;
 /*this of the general web page */
 #parent{
   display: flex; /*Always need for flex positioning*/
-  justify-content: center;
+  justify-content: space-evenly;
   font-family: Jazz LET, fantasy;
+  overflow-x: hidden;
 }
 
 body{
@@ -100,8 +109,8 @@ body{
   font-family:
 }
 #title{
-  text-align:center;
-  padding-left: 500px;
+  text-align: center;
+  /*padding-left: 500px;*/
   padding-top: 10px;
   background-color: black;
   color: white;
