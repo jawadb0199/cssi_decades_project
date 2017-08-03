@@ -1,0 +1,11 @@
+h1{
+  font-family: fantasy;
+  text-align: center;
+  color: white;
+}
+body{
+  background-image: url("http://smartfuse.s3.amazonaws.com/ea6cf035faea6cf035fae/uploads/2016/07/decades-logo.png");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}
