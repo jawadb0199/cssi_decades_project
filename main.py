@@ -89,18 +89,24 @@ class HomePageHandler(webapp2.RequestHandler):
     def get(self):
 		template = jinja_environment.get_template('/templates/homepage.html')
 		self.response.write(template.render())
-    # def post (self):
-    #     template = jinja_environment.get_template('/templates/1990s.html')
-    #     self.response.write(template.render())
+    def post(self):
+        template = jinja_environment.get_template('/templates/90sEntertainment.html')
+        AddBookmark(self)
+        self.response.write(template.render())
 
 # this section is just for the 1990s Handlers
 class NintiesPageHandler(webapp2.RequestHandler):
     def get(self):
 		template = jinja_environment.get_template('/templates/1990s.html')
 		self.response.write(template.render())
-    def post (self):
+    # def post (self):
+    #     template = jinja_environment.get_template('/templates/90sEntertainment.html')
+    #     self.response.write(template.render())
+    def post(self):
         template = jinja_environment.get_template('/templates/90sEntertainment.html')
+        AddBookmark(self)
         self.response.write(template.render())
+
 
 class NintiesEntertainmentHandler(webapp2.RequestHandler):
     def get(self):
@@ -142,11 +148,19 @@ class NintiesScientificDiscHandler(webapp2.RequestHandler):
     def get(self):
 		template = jinja_environment.get_template('/templates/90sScientificDisc.html')
 		self.response.write(template.render())
+    def post(self):
+        template = jinja_environment.get_template('/templates/90sEntertainment.html')
+        AddBookmark(self)
+        self.response.write(template.render())
 
 class NintiesFunFactsHandler(webapp2.RequestHandler):
     def get(self):
 		template = jinja_environment.get_template('/templates/90sFunFacts.html')
 		self.response.write(template.render())
+    def post(self):
+        template = jinja_environment.get_template('/templates/90sEntertainment.html')
+        AddBookmark(self)
+        self.response.write(template.render())
 
 
 class NintiesSpecialEventsNewsHandler(webapp2.RequestHandler):
@@ -154,36 +168,56 @@ class NintiesSpecialEventsNewsHandler(webapp2.RequestHandler):
 		template = jinja_environment.get_template('/templates/90sSpecialEventsNews.html')
 		self.response.write(template.render())
 # End of 90s Handlers
-
+    def post(self):
+        template = jinja_environment.get_template('/templates/90sEntertainment.html')
+        AddBookmark(self)
+        self.response.write(template.render())
 # Beginning of 2000s Handlers
 class TwoThousandsPageHandler(webapp2.RequestHandler):
     def get(self):
 		template = jinja_environment.get_template('/templates/2000s.html')
 		self.response.write(template.render())
-    def post (self):
-        template = jinja_environment.get_template('/templates/00sEntertainment.html')
-        self.response.write(template.render())
 
 class TwoThousandsEntertainmentHandler(webapp2.RequestHandler):
     def get(self):
 		template = jinja_environment.get_template('/templates/00sEntertainment.html')
 		self.response.write(template.render())
+    def post(self):
+        template = jinja_environment.get_template('/templates/90sEntertainment.html')
+        AddBookmark(self)
+        self.response.write(template.render())
+
 
 class TwoThousandsScientificDiscHandler(webapp2.RequestHandler):
     def get(self):
 		template = jinja_environment.get_template('/templates/00sScientificDiscoveries.html')
 		self.response.write(template.render())
+    def post(self):
+        template = jinja_environment.get_template('/templates/90sEntertainment.html')
+        AddBookmark(self)
+        self.response.write(template.render())
+
 
 class TwoThousandsFunFactsHandler(webapp2.RequestHandler):
     def get(self):
 		template = jinja_environment.get_template('/templates/00sFunfacts.html')
 		self.response.write(template.render())
+    def post(self):
+        template = jinja_environment.get_template('/templates/90sEntertainment.html')
+        AddBookmark(self)
+        self.response.write(template.render())
+
 
 
 class TwoThousandsSpecialEventsNewsHandler(webapp2.RequestHandler):
     def get(self):
 		template = jinja_environment.get_template('/templates/00sSpecialEventsNews.html')
 		self.response.write(template.render())
+    def post(self):
+        template = jinja_environment.get_template('/templates/90sEntertainment.html')
+        AddBookmark(self)
+        self.response.write(template.render())
+
 
 #End of 2000s Handlers
 class DecadeHandler(webapp2.RequestHandler):
