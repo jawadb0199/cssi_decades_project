@@ -13,7 +13,7 @@
 					<li>{{ bookmark['caption'] }}</li>
 						<form method="post">
 							<iframe src="{{ bookmark['fact_url'] }}" height="380" frameborder="0" allowtransparency="true"></iframe>
-							<input value="{{bookmark['caption']}}" type="text" name="deleted_fact" readonly="true">
+							<input value="{{bookmark['caption']}}" type="hidden" name="deleted_fact" readonly="true">
 							<button>[-]</button>
 						</form>
 				{% elif bookmark['type'] == 'youtube' %}
@@ -21,14 +21,14 @@
 					<li>{{ bookmark['caption'] }}</li>
 						<form method="post">
 							<iframe src="{{ bookmark['fact_url'] }}" width='560' height="315" frameborder="0"></iframe>
-							<input value="{{ bookmark['caption'] }}" type="text" name="deleted_fact" readonly="true">
+							<input value="{{ bookmark['caption'] }}" type="hidden" name="deleted_fact" readonly="true">
 							<button>[-]</button>
 						</form>
 				{% elif bookmark['type'] == 'picture' %}
 					<li>{{bookmark['caption']}}</li>
 						<form method="post">
 							<img src="{{ bookmark['fact_url'] }}">
-							<input value="{{ bookmark['caption'] }}" type="text" name="deleted_fact" readonly="true">
+							<input value="{{ bookmark['caption'] }}" type="hidden" name="deleted_fact" readonly="true">
 							<button>[-]</button>
 						</form>
 				{% endif %}

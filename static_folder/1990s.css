@@ -11,10 +11,14 @@
 }
 
 #mainPic{
-width:500px;
-height:500px;
+width: 33%;
+height: 55%;
 display: flex;
 padding-left: 450px;
+text-align: center;
+position: relative;
+max-width: 100%;
+height: auto;
 }
 
 .tablink {
@@ -36,4 +40,8 @@ body{
   text-align: center;
   font-family: fantasy;
 
+}
+.tablink a{
+  text-decoration: none;
+  color: purple;
 }
