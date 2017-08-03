@@ -4,7 +4,7 @@ h3{
 
 #shows {
   color: #DC143C;
-  background-color: #483D8B;
+  background-color: black;
   margin-right:100px;
 }
 #musicPlaylist{
@@ -13,7 +13,7 @@ h3{
 }
 #musicngames{
   color: #DC143C;
-  background-color: #483D8B;
+  background-color: black;
   margin-right: 100px;
   padding-left: 250px;
   margin-left: 100px;
@@ -30,7 +30,7 @@ h3{
 #title{
   padding-left: 500px;
   padding-top: 10px;
-  background-color: #483D8B;
+  background-color: black;
   color: white;
   font-family: Jazz LET, fantasy;
 }
@@ -54,7 +54,7 @@ h3{
 #pulpFictionVid{
   color: #DC143C;
   padding-right:40px;
-  background-color: #483D8B;
+  background-color: black;
 
 }
 #friendsPic{

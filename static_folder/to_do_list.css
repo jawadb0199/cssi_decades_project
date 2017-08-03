@@ -1,0 +1,11 @@
+h1{
+  font-family: fantasy;
+  text-align: center;
+  color: white;
+}
+body{
+  background-image: url("https://ak8.picdn.net/shutterstock/videos/21902974/thumb/1.jpg?i10c=img.resize(height:160)");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+}

@@ -40,12 +40,12 @@ def AddBookmark(self):
         logging.info(new_caption)
         exists = False
     else:
+        logging.info(new_caption)
         for bookmark in variables['bookmarks']:
             if bookmark['caption'] == new_caption:
                 exists = True
             else:
                 exists = False
-                break
     logging.info(exists)
     if not exists:
         fact_type = None
