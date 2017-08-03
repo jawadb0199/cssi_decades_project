@@ -53,6 +53,7 @@ def AddBookmark(self):
             fact_type = 'spotify'
         elif 'youtube' in saved_fact:
             fact_type = 'youtube'
+            logging.info(fact_type)
         elif 'jpg' in saved_fact or 'png' in saved_fact:
             logging.info(fact_type)
             fact_type = 'picture'
