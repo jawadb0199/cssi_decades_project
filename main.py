@@ -236,8 +236,8 @@ class ToDoListHandler(webapp2.RequestHandler):
 
 
 app = webapp2.WSGIApplication([
-    ('/', MainHandler),
-    ('/homepage', HomePageHandler),
+    # ('/', MainHandler),
+    ('/', HomePageHandler),
     ('/1990s', NintiesPageHandler),
     ('/90sEntertainment', NintiesEntertainmentHandler),
     ('/90sScientificDisc', NintiesScientificDiscHandler),
