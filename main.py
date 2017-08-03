@@ -22,12 +22,43 @@ import jinja2
 import os
 from google.appengine.ext import ndb
 
+# exists = False
+variables = {'bookmarks':[
 
-fact_list = []
-item_list = []
-variables = {'fact_list' : fact_list, 'item_list': item_list}
+]}
+
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
+
+def AddBookmark(self):
+    # pass
+    saved_fact = self.request.get("saved_fact")
+    new_caption = self.request.get('caption')
+    logging.info(saved_fact)
+    logging.info(new_caption)
+    if len(variables['bookmarks']) == 0:
+        logging.info(new_caption)
+        exists = False
+    else:
+        for bookmark in variables['bookmarks']:
+            if bookmark['caption'] == new_caption:
+                exists = True
+            else:
+                exists = False
+                break
+    logging.info(exists)
+    if not exists:
+        fact_type = None
+        if 'spotify' in saved_fact:
+            fact_type = 'spotify'
+        elif 'youtube' in saved_fact:
+            fact_type = 'youtube'
+        elif 'jpg' in saved_fact or 'png' in saved_fact:
+            logging.info(fact_type)
+            fact_type = 'picture'
+        if fact_type is not None:
+            variables['bookmarks'].append({'caption':new_caption, 'fact_url':saved_fact, 'type':fact_type})
+    return variables
 
 class Feedback(ndb.Model):
     # Feedback to send to datastoe
@@ -49,8 +80,6 @@ class FeedbackHandler(webapp2.RequestHandler):
         new_feedback = Feedback(name = name, email = email, rating = rating, comment = comment)
         new_feedback.put()
         self.response.write(template.render())
-
-
 
 class MainHandler(webapp2.RequestHandler):
     def get(self):
@@ -75,8 +104,39 @@ class NintiesPageHandler(webapp2.RequestHandler):
 
 class NintiesEntertainmentHandler(webapp2.RequestHandler):
     def get(self):
-		template = jinja_environment.get_template('/templates/90sEntertainment.html')
-		self.response.write(template.render())
+        template = jinja_environment.get_template('/templates/90sEntertainment.html')
+        self.response.write(template.render())
+        # AddBookmark(self)
+    def post(self):
+        template = jinja_environment.get_template('/templates/90sEntertainment.html')
+        AddBookmark(self)
+        # saved_fact = self.request.get("saved_fact")
+        # new_caption = self.request.get('caption')
+        # logging.info(saved_fact)
+        # logging.info(new_caption)
+        # if len(variables['bookmarks']) == 0:
+        #     logging.info(new_caption)
+        #     exists = False
+        # else:
+        #     for bookmark in variables['bookmarks']:
+        #         if bookmark['caption'] == new_caption:
+        #             exists = True
+        #         else:
+        #             exists = False
+        #             break
+        # logging.info(exists)
+        # if not exists:
+        #     fact_type = None
+        #     if 'spotify' in saved_fact:
+        #         fact_type = 'spotify'
+        #     elif 'youtube' in saved_fact:
+        #         fact_type = 'youtube'
+        #     elif 'jpg' in saved_fact or 'png' in saved_fact:
+        #         logging.info(fact_type)
+        #         fact_type = 'picture'
+        #     if fact_type is not None:
+        #         variables['bookmarks'].append({'caption':new_caption, 'fact_url':saved_fact, 'type':fact_type})
+        self.response.write(template.render())
 
 class NintiesScientificDiscHandler(webapp2.RequestHandler):
     def get(self):
@@ -134,28 +194,45 @@ class DecadeHandler(webapp2.RequestHandler):
     def post(self):
         template = jinja_environment.get_template('/templates/spotify.html')
         saved_fact = self.request.get("saved_fact")
-        list_item = self.request.get('list_item')
-        print list_item
-        if saved_fact not in fact_list:
-            fact_list.append(saved_fact)
-        if list_item not in item_list:
-            item_list.append(list_item)
-        print saved_fact
-        print variables
+        new_caption = self.request.get('caption')
+        logging.info(saved_fact)
+        logging.info(new_caption)
+        if len(variables['bookmarks']) == 0:
+        	exists = False
+        else:
+            for bookmark in variables['bookmarks']:
+                if bookmark['caption'] == new_caption:
+                    exists = True
+                else:
+                    exists = False
+                    break
+        # else:
+        #     exists = False
+        if not exists:
+            if 'spotify' in saved_fact:
+                fact_type = 'spotify'
+            elif 'youtube' in saved_fact:
+                fact_type = 'youtube'
+            elif 'jpg' in saved_fact or 'png' in saved_fact:
+                fact_type = 'picture'
+            variables['bookmarks'].append({'caption':new_caption, 'fact_url':saved_fact, 'type':fact_type})
+        logging.info(variables)
         self.response.write(template.render())
 
 class ToDoListHandler(webapp2.RequestHandler):
 	def get(self):
 		template = jinja_environment.get_template('/templates/to_do_list.html')
-		print variables
+		logging.info(variables)
 		self.response.write(template.render(variables))
 	def post(self):
 		template = jinja_environment.get_template('/templates/to_do_list.html')
 		deleted_fact = self.request.get("deleted_fact")
-		fact_list.remove(deleted_fact)
-		print deleted_fact
-		# variables["fact_list"] = fact_list
-		print variables
+		# logging.info(deleted_fact)
+		for bookmark in variables['bookmarks']:
+			if deleted_fact == bookmark['caption']:
+				variables['bookmarks'].remove(bookmark)
+				break
+		logging.info(variables)
 		self.response.write(template.render(variables))
 
 
