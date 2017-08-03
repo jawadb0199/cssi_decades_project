@@ -15,6 +15,7 @@ width:500px;
 height:500px;
 display: flex;
 padding-left: 450px;
+padding-right: 450px;
 }
 
 .tablink {
@@ -28,8 +29,12 @@ padding-left: 450px;
   font-size: 17px;
   width: 20%;
 }
+
+h1{
+  color: white;
+}
 body{
-  background-image: url("http://zabbyallen.com/user/pages/01.blog/freebie-friday-90s-inspired-backgrounds/triangles-background.jpg");
+  background-image: url("https://image.freepik.com/free-vector/memphis-background-with-eighties-objects_23-2147573891.jpg");
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
