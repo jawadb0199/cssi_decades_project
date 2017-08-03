@@ -4,7 +4,7 @@ h3{
 /*This section is for tv shows*/
 #shows {
   color: #DC143C;
-  background-color: black;
+  background-color: #008B8B;
   margin-right:100px;
 }
 #csiPic{
@@ -41,7 +41,7 @@ height:200px;
 /*This section is for music and games*/
 #musicngames{
   color: #DC143C;
-  background-color: black;
+  background-color: #FFA500;
   margin-right: 100px;
   padding-left: 250px;
   margin-left: 100px;
@@ -76,13 +76,13 @@ height:200px;
 #movies{
   color: #DC143C;
   margin-right: 150px;
-  background-color: black;
+  background-color: #FFA500;
 }
 
 #darkKnightVid{
   color: #DC143C;
   padding-right:40px;
-  background-color: black;
+  background-color: #FFA500;
 }
 
 /*this of the general web page */
