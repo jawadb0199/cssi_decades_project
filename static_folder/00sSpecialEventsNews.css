@@ -1,20 +1,17 @@
 body{
-  background-image: url("http://i.imgur.com/kvvFj.jpg");
+  background-image: url("https://cdn.shutterstock.com/shutterstock/videos/1964716/thumb/1.jpg");
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
   color: white;
 }
-li{
-text-align: center;
-}
 
-#ojPic{
+#wtcPic{
   width: 450px;
   height: 450px;
 }
 
-#dollyPic{
+#presObama{
   width: 450px;
   height: 450px;
 }

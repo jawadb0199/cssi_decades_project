@@ -51,6 +51,8 @@ class FeedbackHandler(webapp2.RequestHandler):
         new_feedback.put()
         self.response.write(template.render())
 
+
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
         self.response.write('Hello world!')
@@ -59,9 +61,9 @@ class HomePageHandler(webapp2.RequestHandler):
     def get(self):
 		template = jinja_environment.get_template('/templates/homepage.html')
 		self.response.write(template.render())
-    def post (self):
-        template = jinja_environment.get_template('/templates/1990s.html')
-        self.response.write(template.render())
+    # def post (self):
+    #     template = jinja_environment.get_template('/templates/1990s.html')
+    #     self.response.write(template.render())
 
 # this section is just for the 1990s Handlers
 class NintiesPageHandler(webapp2.RequestHandler):
@@ -94,6 +96,37 @@ class NintiesSpecialEventsNewsHandler(webapp2.RequestHandler):
 		self.response.write(template.render())
 # End of 90s Handlers
 
+# Beginning of 2000s Handlers
+class TwoThousandsPageHandler(webapp2.RequestHandler):
+    def get(self):
+		template = jinja_environment.get_template('/templates/2000s.html')
+		self.response.write(template.render())
+    def post (self):
+        template = jinja_environment.get_template('/templates/00sEntertainment.html')
+        self.response.write(template.render())
+
+class TwoThousandsEntertainmentHandler(webapp2.RequestHandler):
+    def get(self):
+		template = jinja_environment.get_template('/templates/00sEntertainment.html')
+		self.response.write(template.render())
+
+class TwoThousandsScientificDiscHandler(webapp2.RequestHandler):
+    def get(self):
+		template = jinja_environment.get_template('/templates/00sScientificDiscoveries.html')
+		self.response.write(template.render())
+
+class TwoThousandsFunFactsHandler(webapp2.RequestHandler):
+    def get(self):
+		template = jinja_environment.get_template('/templates/00sFunfacts.html')
+		self.response.write(template.render())
+
+
+class TwoThousandsSpecialEventsNewsHandler(webapp2.RequestHandler):
+    def get(self):
+		template = jinja_environment.get_template('/templates/00sSpecialEventsNews.html')
+		self.response.write(template.render())
+
+#End of 2000s Handlers
 class DecadeHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('/templates/spotify.html')
@@ -152,6 +185,11 @@ app = webapp2.WSGIApplication([
     ('/90sScientificDisc', NintiesScientificDiscHandler),
     ('/90sFunFacts', NintiesFunFactsHandler),
     ('/90sSpecialEventsNews', NintiesSpecialEventsNewsHandler),
+    ('/2000s' ,TwoThousandsPageHandler),
+    ('/00sEntertainment', TwoThousandsEntertainmentHandler),
+    ('/00sFunfacts', TwoThousandsFunFactsHandler),
+    ('/00sScientificDisc', TwoThousandsScientificDiscHandler),
+    ('/00sSpecialEventsNews', TwoThousandsSpecialEventsNewsHandler),
     ('/decade', DecadeHandler),
     ('/todolist', ToDoListHandler),
     ('/feedback', FeedbackHandler)

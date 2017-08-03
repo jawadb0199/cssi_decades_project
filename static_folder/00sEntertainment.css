@@ -1,0 +1,121 @@
+h3{
+  font-family: anton;
+}
+/*This section is for tv shows*/
+#shows {
+  color: #DC143C;
+  background-color: black;
+  margin-right:100px;
+}
+#csiPic{
+  width: 400px;
+  padding-right: 10px;
+}
+
+#malcolmInTheMiddle{
+width:400px;
+padding-right: 10px;
+height:200px;
+}
+
+#gilmoreGirlsPic{
+  width: 400px;
+  padding-right: 10px;
+  height: 200px;
+}
+#sopranosPic{
+  width: 400px;
+  padding-right: 10px;
+  height: 300px;
+}
+
+#bcurbYourEnthusiasmPic{
+  width: 200px;
+  padding-right: 10px;
+  text-align: center;
+}
+#musicPlaylist{
+  padding-right: 30px;
+}
+
+/*This section is for music and games*/
+#musicngames{
+  color: #DC143C;
+  background-color: black;
+  margin-right: 100px;
+  padding-left: 250px;
+  margin-left: 100px;
+  height: 1710px;
+}
+#counterStrikepic{
+  width:200px;
+  height:200px;
+}
+#diabloPic{
+  width:200px;
+  height:200px;
+}
+
+#deusExpic{
+   width:200px;
+   height:200px;
+   padding-right: 10px;
+   display: flex;
+ }
+#hitman47{
+  width:200px;
+  height:200px;
+  display: flex;
+}
+#starTrekVoyager{
+  width:200px;
+  height:200px;
+  display: flex;
+}
+/*This section is for the movies */
+#movies{
+  color: #DC143C;
+  margin-right: 150px;
+  background-color: black;
+}
+
+#darkKnightVid{
+  color: #DC143C;
+  padding-right:40px;
+  background-color: black;
+}
+
+/*this of the general web page */
+#parent{
+  display: flex; /*Always need for flex positioning*/
+  justify-content: center;
+  font-family: Jazz LET, fantasy;
+}
+
+body{
+  background-image: url("https://thumbs.dreamstime.com/x/s-vintage-color-background-vector-49673940.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  font-family:
+}
+#title{
+  text-align:center;
+  padding-left: 500px;
+  padding-top: 10px;
+  background-color: black;
+  color: white;
+  font-family: Jazz LET, fantasy;
+
+}
+
+.tablink {
+  background-color: red;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 25%;

@@ -1,36 +1,35 @@
 body{
-  background-image: url("https://ak5.picdn.net/shutterstock/videos/15389950/thumb/10.jpg?i10c=img.resize(height:160)");
+  background-image: url("http://media.gettyimages.com/videos/black-panther-walking-across-a-white-backdrop-as-it-gets-closer-and-video-idmr_00092947?s=640x640");
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
-  text-align: center;
 }
 
 h1{
-  color: white;
+  color: black;
   font-size: 50px;
 
 }
- li{
-   color: white;
+ ul{
+   color: black;
    font-size: 30px;
  }
- #Photoshop{
-  text-align: center;
+ #ipod{
+  display: flex;
 }
 
-#Internet{
+#DNA{
   height: 400px;
   width: 650px;
 }
 
-#linux{
+#sixthSense{
   height: 400px;
   width: 650px;
 }
 .tablink {
   background-color: #9400D3;
-  color: white;
+  color: black;
   float: left;
   border: none;
   outline: none;
