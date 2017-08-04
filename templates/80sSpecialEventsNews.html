@@ -1,179 +1,86 @@
+<html>
 <head>
-  <title>90s Entertainment</title>
-  <link rel="stylesheet" href="/resources/80sEntertainment.css">
+  <title>80s Special Events/News</title>
+  <link rel="stylesheet" href="/resources/80sSpecialEventsNews.css">
   <body>
     <button class= "tablink" id= "Homepage"><a href= "/">Homepage</a></button>
+    <button class= "tablink" id= "Entertainment"><a href= "/80sEntertainment">Entertainment</a></button>
     <button class= "tablink" id= "ScientificDisc"><a href= "/80sScientificDisc">Scientific Discoveries</a></button>
     <button class= "tablink" id= "FunFacts"><a href= "/80sFunFacts">Fun Facts</a></button>
-    <button class= "tablink" id= "SpecialEventsNews"><a href= "/80sSpecialEventsNews">Special Events/News</a></button>
-  <h1 id="title">Entertainment</h1>
-  <section id= "parent">
-    <div id= "musicngames">
-      <div class="box" id="games">
-        <h3> Top 5 Games</h3>
-        <ul>
-        <!-- defender game -->
-          <li>Defender(1981)</li>
-          <img id= "defenderpic"src= "http://worldofstuart.excellentcontent.com/unlocked/defender/supergb.png"/>
-          <form method='post'>
-      				<input value="http://worldofstuart.excellentcontent.com/unlocked/defender/supergb.png" type="hidden" name="saved_fact" readonly="true">
-      				<!-- set input value for caption of image to send to post function -->
-      				<input value='Defender(1981)' type="hidden" name="caption" readonly="true">
-      				<button>[+]</button>
-      		</form>
-<!-- tetris game -->
-          <li>Tetris(1984)</li>
-            <img id= "tetrisPic"src= "http://philippines.liketimes.me/file/parts/Ia781741/92fe67e3f581be09dc5e09baa3c303e5.jpg"/>
-          <form method='post'>
-      				<input value="http://philippines.liketimes.me/file/parts/Ia781741/92fe67e3f581be09dc5e09baa3c303e5.jpg" type="hidden" name="saved_fact" readonly="true">
-      				<!-- set input value for caption of image to send to post function -->
-      				<input value='Tetris(1984)' type="hidden" name="caption" readonly="true">
-      				<button>[+]</button>
-      		</form>
-
-          <!-- PacMan Game -->
-          <li>PacMan (1980)</li>
-          <img id= "pacMan" src= "http://students.expression.edu/johnherrera/files/2013/06/pac-man-logo.gif"/>
-          <form method='post'>
-              <input value="http://students.expression.edu/johnherrera/files/2013/06/pac-man-logo.gif" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='PacMan (1980)' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-          </form>
-           Pic Tag ()
-          <!-- Donkey Kong game -->
-          <li>Donkey Kong (1981)</li>
-          <img id= "donkeyKong" src= "https://tcrf.net/images/c/c9/DonkeyKongARCTitle.png"/>
-          <form method='post'>
-              <input value="https://tcrf.net/images/c/c9/DonkeyKongARCTitle.png" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='Donkey Kong (1981)' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-          </form>
+    <h1>Special Events and News</h1>
+    <ul id="news">
+      <li>Kids weren’t allowed to play Duegons and Dragons-By today's standards, playing Dungeons and Dragons is a fairly innocuous marker of low-level nerd-dom.
+        <br> In the '80s, though, the table-top role-playing game was seen by some as a work of the devil himself, to be played by only the most disturbed and unsupervised of children.
+        <br>Groups of religious fundamentalists decried the growing popularity of the game, saying the imagery of mythical beings and pseudo-religious figures represented the "occult."
+        <br> A small number of teen suicides were even blamed on the game by grieving parents, and in 1983 one of these parents started "BADD," a knock-off of MADD that stood for "Bothered About Dungeons and Dragons."</li>
+      <a href="http://mentalfloss.com/article/31885/12-nutty-dungeons-dragons-media-mentions-1980s">
+      <img src= "http://i2.cdn.cnn.com/cnnnext/dam/assets/140519092838-dungeons-dragons-tiamat-exlarge-169.jpg"/></a>
+      <form method='post'>
+          <input value="http://i2.cdn.cnn.com/cnnnext/dam/assets/140519092838-dungeons-dragons-tiamat-exlarge-169.jpg" type="hidden" name="saved_fact" readonly="true">
+          <!-- set input value for caption of image to send to post function -->
+          <input value= 'Kids weren’t allowed to play Deugons and Dragons' type="hidden" name="caption" readonly="true">
+          <button>[+]</button>
+      </form>
 
 
-          <!-- Galaga game -->
-          <li>Galaga (1981)</li>
-          <img id= "galaga" src= "https://upload.wikimedia.org/wikipedia/en/2/2a/Galaga.png"/>
-          <form method='post'>
-              <input value="https://upload.wikimedia.org/wikipedia/en/2/2a/Galaga.png" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='Galaga (1981)' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-          </form>
-        </ul>
-      </div>
-      <div class= "box" id="music" >
-        <h3> Top 90s Music</h3>
-        <form  id= "musicPlaylist" method="post">
-    		    <iframe src="https://open.spotify.com/embed?uri=spotify%3Auser%3Aoliverwows%3Aplaylist%3A6JsPEZWnJnks47BLkUNhaI" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-    		    <input value="https://open.spotify.com/embed?uri=spotify%3Auser%3Aoliverwows%3Aplaylist%3A6JsPEZWnJnks47BLkUNhaI" type="hidden" name="saved_fact" readonly="true">
-    				<button>[+]</button>
-    	  </form>
-        </div>
-      </div>
-    <div class="box" id= "shows">
-      <h3> Top 5 TV Shows</h3>
-      <ul>
-        <li>Friends: 1994-2004</li>
-        <img id= "friendsPic" src= "https://static.tumblr.com/7eb8cc2099c988b3dedfac0e97bafd0b/erhrt6a/1s7nrbnjw/tumblr_static_tumblr_static__640.jpg"/>
-        <form method='post'>
-              <input value="https://static.tumblr.com/7eb8cc2099c988b3dedfac0e97bafd0b/erhrt6a/1s7nrbnjw/tumblr_static_tumblr_static__640.jpg" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='Friends: 1994-2004' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-        </form>
 
-        <li>Fresh Prince of Bel-Air: 1990-1996</li>
-        <img id= "freshPrincePic" src= "http://cdn03.cdn.justjared.com/wp-content/uploads/headlines/2015/03/c-span-gets-pranked-with-funny-fresh-prince-of-bel-air-call.jpg"/>
-        <form method='post'>
-              <input value="http://cdn03.cdn.justjared.com/wp-content/uploads/headlines/2015/03/c-span-gets-pranked-with-funny-fresh-prince-of-bel-air-call.jpg" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='Fresh Prince of Bel-Air: 1990-1996' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-        </form>
-
-        <li>Seinfeld: 1989- 1998</li>
-        <img id="seinfeldPic" src= "http://i0.kym-cdn.com/entries/icons/original/000/014/225/30188hiseinfeld1.jpg"/>
-        <form method='post'>
-              <input value="http://i0.kym-cdn.com/entries/icons/original/000/014/225/30188hiseinfeld1.jpg" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='Seinfeld: 1989- 1998' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-        </form>
+      <li>Coke tried to sell us "New Coke"-In 1985, as Coke saw some of its sales flip to the Pepsi camp, the company "reinvented" the original formula.
+        <br> They marketed it as the "New taste of Coke," and people hated it. Within months, Coke reversed back to the now-"Classic" formula and actually saw a rise in sales.
+        <br> It's kind of like when an actor says they're retiring or a celebrity says they're quitting Twitter, and their publicity skyrockets before they all of a sudden change their minds.
+        <br>The switcheroo may have given Coke a little bit of a boost, but it's historically seen as a cheap move. </li>
+      <a href= "http://time.com/3822869/new-coke-history/">
+      <img src= "http://i2.cdn.cnn.com/cnnnext/dam/assets/160328140519-new-coke-exlarge-169.jpg"/></a>
+      <form method='post'>
+          <input value="http://i2.cdn.cnn.com/cnnnext/dam/assets/160328140519-new-coke-exlarge-169.jpg" type="hidden" name="saved_fact" readonly="true">
+          <!-- set input value for caption of image to send to post function -->
+          <input value= 'Coke tried to sell us "New Coke"' type="hidden" name="caption" readonly="true">
+          <button>[+]</button>
+      </form>
 
 
-        <li>The Simpsons : Since 1989</li>
-        <img id="simpsonsPic" src= "https://images-na.ssl-images-amazon.com/images/M/MV5BYjFkMTlkYWUtZWFhNy00M2FmLThiOTYtYTRiYjVlZWYxNmJkXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_UX182_CR0,0,182,268_AL_.jpg"/>
-        <form method='post'>
-              <input value="https://images-na.ssl-images-amazon.com/images/M/MV5BYjFkMTlkYWUtZWFhNy00M2FmLThiOTYtYTRiYjVlZWYxNmJkXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_UX182_CR0,0,182,268_AL_.jpg" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='The Simpsons : Since 1989' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-        </form>
+
+      <li>In 1980, the United States straight up didn't go to the Summer Olympics at all because the games were being held in the Soviet capital of Moscow and the USSR had refused
+        <br> President Jimmy Carter's call to abandon the Soviet invasion of Afghanistan.
+        <br>Japan, West Germany, and Canada were among the countries to join in the boycott. All in all, 65 countries that were invited chose not to participate in the Moscow games, for one reason or another.
+        <br> The Soviet Union boycotted the following Summer Olympics because the 1984 games were being held in -- yes, you guessed it -- the United States (Los Angeles, to be exact). </li>
+      <a href= "http://www.history.com/this-day-in-history/soviets-announce-boycott-of-1984-olympics">
+      <img id= "boycott" src= "http://i2.cdn.cnn.com/cnnnext/dam/assets/120807084810-olympics-2012-boycott-moscow-1980-horizontal-large-gallery.jpg"/></a>
+      <form method='post'>
+          <input value="http://i2.cdn.cnn.com/cnnnext/dam/assets/120807084810-olympics-2012-boycott-moscow-1980-horizontal-large-gallery.jpg" type="hidden" name="saved_fact" readonly="true">
+          <!-- set input value for caption of image to send to post function -->
+          <input value= 'Boycotting Back to Back' type="hidden" name="caption" readonly="true">
+          <button>[+]</button>
+      </form>
 
 
-        <li>Boy Meets World 1993-2000</li>
-        <img id= "boyMeetsWorldPic" src= "http://img.123movies.to/2016/02/24/poster/0024c3041c1b5f19a84a472af8277dc5-boy-meets-world-season-4.jpg"/>
-        <form method='post'>
-              <input value="http://img.123movies.to/2016/02/24/poster/0024c3041c1b5f19a84a472af8277dc5-boy-meets-world-season-4.jpg" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='Boy Meets World 1993-2000' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-        </form>
-      </ul>
-    </div>
 
-    <div class="box" id="movies">
-      <h3> Top 5 Moives</h3>
-      <ul>
-        <li>Pulp Fiction: 1994</li>
-         <iframe id="pulpFictionVid" width="560" height="315" src="https://www.youtube.com/embed/ewlwcEBTvcg" frameborder="0" allowfullscreen></iframe>
-         <form method='post'>
-              <input value="https://www.youtube.com/embed/ewlwcEBTvcg" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='Pulp Fiction: 1994' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-        </form>
 
-        <li>Jurassic Park: 1993</li>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/lc0UehYemQA" frameborder="0" allowfullscreen></iframe>
-        <form method='post'>
-              <input value="https://www.youtube.com/embed/lc0UehYemQA" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='Jurassic Park: 1993' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-        </form>
+      <li>People actually fought each other over Cabbage Patch Kids dolls 8 bizarre things that actually happened in the 1980s.
+        <br>The Cabbage Patch craze may go down as one of America's greatest mysteries. Here are supposedly normal, sane human beings coming to blows over something that looks like a potato with eyes.
+        <br>Have there been countless inexplicable fads since? Of course (we haven't forgotten you, POGs). But the Cabbage Patch insanity was the perfect alchemy of consumer hysteria and creepy soft-sculpted charm.</li>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/9sOlIvx7Pvs" frameborder="0" allowfullscreen></iframe>
+      <form method='post'>
+          <input value='https://www.youtube.com/embed/9sOlIvx7Pvs' type="hidden" name="saved_fact" readonly="true">
+          <!-- set input value for caption of image to send to post function -->
+          <input value= 'Cabbage Patch Kids Craze' type="hidden" name="caption" readonly="true">
+          <button>[+]</button>
+      </form>
 
-        <li>Toy Story: 1995</li>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/4KPTXpQehio" frameborder="0" allowfullscreen></iframe>
-        <form method='post'>
-              <input value="https://www.youtube.com/embed/4KPTXpQehio" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='Toy Story: 1995' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-        </form>
 
-        <li>Titanic: 1997</li>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/zCy5WQ9S4c0" frameborder="0" allowfullscreen></iframe>
-        <form method='post'>
-              <input value="https://www.youtube.com/embed/zCy5WQ9S4c0" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='Titanic: 1997' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-        </form>
 
-        <li>The GoodFellas: 1990</li>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/qo5jJpHtI1Y" frameborder="0" allowfullscreen></iframe>
-        <form method='post'>
-              <input value="https://www.youtube.com/embed/qo5jJpHtI1Y" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='The GoodFellas: 1990' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-        </form>
-      </ul>
-    </div>
-  </section>
+
+      <li>The Chicago Bears gave us the "Super Bowl Shuffle"- In the age of viral advertising, a professional sports team recording a corny rap song about themselves is a fairly precise formula for Internet gold.
+        <br> How prescient, then, that the Chicago Bears did exactly this in 1985, when they released the "Super Bowl Shuffle," the greatest recording in the history of sound.
+        <br> Not since Orpheus plucked his lyre before Hades has there been a purer musical embodiment of the human experience. And -- since this was the '80s -- they also recorded a stunning music video.
+        <br>The song became a hit and was even nominated for a Grammy for Best Rhythm and Blues Performance by a duo or group.</li>
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/oTq4JUDy52M" frameborder="0" allowfullscreen></iframe>
+      <form method='post'>
+          <input value='https://www.youtube.com/embed/oTq4JUDy52M' type="hidden" name="saved_fact" readonly="true">
+          <!-- set input value for caption of image to send to post function -->
+          <input value= 'The Chicago Bears gave us the "Super Bowl Shuffle"' type="hidden" name="caption" readonly="true">
+          <button>[+]</button>
+      </form>
+    </ul>
   </body>
 </head>
 </html>

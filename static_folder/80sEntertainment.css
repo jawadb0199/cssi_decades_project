@@ -7,9 +7,38 @@ h3{
   background-color: black;
   margin-right:100px;
 }
+
+#cheersPic{
+  width: 400px;
+  padding-right: 10px;
+}
+
+#aTeam{
+width:400px;
+padding-right: 10px;
+height:200px;
+}
+
+#cosbyShow{
+  width: 400px;
+  padding-right: 10px;
+  height: 200px;
+}
+#fullHouse{
+  width: 400px;
+  padding-right: 10px;
+  height: 300px;
+}
+
+#jumpStreet{
+  width: 200px;
+  padding-right: 10px;
+  text-align: center;
+}
+
 #musicPlaylist{
   padding-right: 30px;
-  height: 600px;
+  height: 3000px;
 }
 #musicngames{
   color: #DC143C;
@@ -34,10 +63,12 @@ h3{
 #donkeyKong{
   width:200px;
   height:200px;
+  display: flex;
 }
 #galaga{
   width:200px;
   height:200px;
+  display: flex;
 }
 
 #title{
@@ -53,50 +84,14 @@ h3{
   background-color: black;
 
 }
-#legendOfZelda{
-   width:200px;
-   height:200px;
-   padding-right: 10px;
-   display: flex;
- }
-#megaMan{
-  width:200px;
-  height:200px;
-  display: flex;
-}
-#pulpFictionVid{
+
+#aliens{
   color: #DC143C;
   padding-right:40px;
   background-color: black;
 
 }
-#friendsPic{
-  width: 400px;
-  padding-right: 10px;
-}
 
-#freshPrincePic{
-width:400px;
-padding-right: 10px;
-height:200px;
-}
-
-#seinfeldPic{
-  width: 400px;
-  padding-right: 10px;
-  height: 200px;
-}
-#simpsonsPic{
-  width: 400px;
-  padding-right: 10px;
-  height: 300px;
-}
-
-#boyMeetsWorldPic{
-  width: 200px;
-  padding-right: 10px;
-  text-align: center;
-}
 #parent{
   display: flex; /*Always need for flex positioning*/
   justify-content: center;
@@ -104,7 +99,7 @@ height:200px;
 }
 
 body{
-  background-image: url("http://i.imgur.com/CFjU41M.jpg");
+  background-image: url("https://s-media-cache-ak0.pinimg.com/originals/7d/df/6f/7ddf6f7a7d27dcdc9733cc225d1eef90.jpg");
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
