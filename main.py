@@ -301,7 +301,7 @@ app = webapp2.WSGIApplication([
     #1980s Links
     ('/1980s' ,EightiesPageHandler),
     ('/80sEntertainment', EightiesEntertainmentHandler),
-    ('/80sFunfacts', EightiesFunFactsHandler),
+    ('/80sFunFacts', EightiesFunFactsHandler),
     ('/80sScientificDisc', EightiesScientificDiscHandler),
     ('/80sSpecialEventsNews', EightiesSpecialEventsNewsHandler),
     ('/decade', DecadeHandler),
