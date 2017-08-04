@@ -27,7 +27,7 @@
 				{% elif bookmark['type'] == 'picture' %}
 					<li>{{bookmark['caption']}}</li>
 						<form method="post">
-							<img src="{{ bookmark['fact_url'] }}">
+							<img src="{{ bookmark['fact_url'] }}" width="560" >
 							<input value="{{ bookmark['caption'] }}" type="hidden" name="deleted_fact" readonly="true">
 							<button>[-]</button>
 						</form>
