@@ -3,9 +3,9 @@
   height:520px;
   margin-left: 400px;
   color: white;
-  background-color: #FF6347;
+  background-color: #C0C0C0;
   padding: 50px;
-  border: 3px solid #FF6347;
+  border: 3px solid #C0C0C0;
   text-align: center;
   font-size: 23px;
 }
@@ -17,6 +17,9 @@ display: flex;
 padding-left: 450px;
 padding-right:450px;
 
+}
+a{
+text-decoration: none;
 }
 
 .tablink {

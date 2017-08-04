@@ -1,10 +1,26 @@
+a {
+  color: white;
+  text-decoration: none;
+
+}
+h1{
+  color: white;
+  font-size: 50px;
+
+}
+
+ul{
+   color: white;
+   font-size: 30px;
+   list-style: none;
+ }
 body{
   background-image: url("https://cdn.shutterstock.com/shutterstock/videos/1964716/thumb/1.jpg");
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
   color: white;
-  text-align: center;
+  /*text-align: center;*/
 }
 
 #wtcPic{
@@ -18,7 +34,7 @@ body{
 }
 
 #news{
-  font-size: 40px;
+  font-size: 35px;
 }
 .tablink {
   background-color: #FF69B4;

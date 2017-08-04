@@ -4,22 +4,28 @@ body{
   background-size: cover;
   background-position: center;
   color: white;
+  font-family: serif;
 }
 li{
 text-align: center;
+font-size: 30px;
+list-style: none;
 }
 
 #ojPic{
+  text-align: center;
   width: 450px;
   height: 450px;
 }
 
 #dollyPic{
+  text-align: center;
   width: 450px;
   height: 450px;
 }
 
 #news{
+  text-align: center;
   font-size: 40px;
 }
 .tablink {
@@ -32,4 +38,11 @@ text-align: center;
   padding: 14px 16px;
   font-size: 17px;
   width: 25%;
+}
+h1{
+  font-family: sans-serif;
+  font-weight: 700;
+}
+a{
+text-decoration: none;
 }

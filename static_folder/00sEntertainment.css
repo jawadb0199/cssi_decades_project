@@ -1,5 +1,6 @@
-h3{
-  font-family: anton;
+
+h1{
+  text-align: center;
 }
 /*This section is for tv shows*/
 #shows {
@@ -99,6 +100,9 @@ height:200px;
   justify-content: space-evenly;
   font-family: Jazz LET, fantasy;
   overflow-x: hidden;
+}
+a{
+text-decoration: none;
 }
 
 body{
