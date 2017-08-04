@@ -1,176 +1,177 @@
-<head>
-  <title>90s Entertainment</title>
-  <link rel="stylesheet" href="/resources/90sEntertainment.css">
-  <body>
-    <button class= "tablink" id= "Homepage"><a href= "/">Homepage</a></button>
-    <button class= "tablink" id= "ScientificDisc"><a href= "/90sScientificDisc">Scientific Discoveries</a></button>
-    <button class= "tablink" id= "FunFacts"><a href= "/90sFunFacts">Fun Facts</a></button>
-    <button class= "tablink" id= "SpecialEventsNews"><a href= "/90sSpecialEventsNews">Special Events/News</a></button>
-  <h1 id="title">Entertainment</h1>
-  <section id= "parent">
-    <div id= "musicngames">
-      <div class="box" id="games">
-        <h3> Top 5 Games</h3>
+<html>
+  <head>
+    <title id="entertainment">90s Entertainment</title>
+    <link rel="stylesheet" href="/resources/90sEntertainment.css">
+    <body>
+      <button class= "tablink" id= "Homepage"><a href= "/">Homepage</a></button>
+      <button class= "tablink" id= "ScientificDisc"><a href= "/90sScientificDisc">Scientific Discoveries</a></button>
+      <button class= "tablink" id= "FunFacts"><a href= "/90sFunFacts">Fun Facts</a></button>
+      <button class= "tablink" id= "SpecialEventsNews"><a href= "/90sSpecialEventsNews">Special Events/News</a></button>
+    <h1 id="title">Entertainment</h1>
+    <section id= "parent">
+      <div id= "musicngames">
+        <div class="box" id="games">
+          <h3> Top 5 Games</h3>
+          <ul>
+          <!-- mario game -->
+            <li>Super Mario Bros (1990)</li>
+            <center><img id= "mariopic" src= "http://www.texturemonkey.com/HCG/blog/superMarioWorld_%2812%29.jpg"/></center>
+            <form method='post'>
+        				<input value="http://www.texturemonkey.com/HCG/blog/superMarioWorld_%2812%29.jpg" type="hidden" name="saved_fact" readonly="true">
+        				<!-- set input value for caption of image to send to post function -->
+        				<input value='Super Mario Bros (1990)' type="hidden" name="caption" readonly="true">
+        				<button>[+]</button>
+        		</form>
+            <li>Secret of Monkey Island (1992)</li>
+              <img id= "secretOfMokeyIslandPic" src= "https://upload.wikimedia.org/wikipedia/en/a/a8/The_Secret_of_Monkey_Island_artwork.jpg"/>
+            <form method='post'>
+        				<input value="https://upload.wikimedia.org/wikipedia/en/a/a8/The_Secret_of_Monkey_Island_artwork.jpg" type="hidden" name="saved_fact" readonly="true">
+        				<!-- set input value for caption of image to send to post function -->
+        				<input value='Secret of of Monkey Island (1992)' type="hidden" name="caption" readonly="true">
+        				<button>[+]</button>
+        		</form>
+            <!-- Zelda Game -->
+            <li>Legend of Zelda (1990)</li>
+            <img id= "legendOfZelda" src= "https://gamefaqs.akamaized.net/box/0/5/0/21050_front.jpg"/>
+            <form method='post'>
+                <input value="https://gamefaqs.akamaized.net/box/0/5/0/21050_front.jpg" type="hidden" name="saved_fact" readonly="true">
+                <!-- set input value for caption of image to send to post function -->
+                <input value='Legend of Zelda (1990)' type="hidden" name="caption" readonly="true">
+                <button>[+]</button>
+            </form>
+            <!-- Mega Man game -->
+            <li>Mega Man 3 (1991)</li>
+            <img id= "megaMan" src= "http://www.mobygames.com/images/covers/l/77923-mega-man-ii-game-boy-front-cover.jpg"/>
+            <form method='post'>
+                <input value="http://www.mobygames.com/images/covers/l/77923-mega-man-ii-game-boy-front-cover.jpg" type="hidden" name="saved_fact" readonly="true">
+                <!-- set input value for caption of image to send to post function -->
+                <input value='Mega Man 3 (1991)' type="hidden" name="caption" readonly="true">
+                <button>[+]</button>
+            </form>
+            <!-- Resident Evil game -->
+            <li>Resident Evil (1996)</li>
+            <img id= "megaMan" src= "http://www.mobygames.com/images/covers/l/2919-resident-evil-windows-front-cover.jpg"/>
+            <form method='post'>
+                <input value="http://www.mobygames.com/images/covers/l/2919-resident-evil-windows-front-cover.jpg" type="hidden" name="saved_fact" readonly="true">
+                <!-- set input value for caption of image to send to post function -->
+                <input value='Super Mario Bros (1990)' type="hidden" name="caption" readonly="true">
+                <button>[+]</button>
+            </form>
+          </ul>
+        </div>
+        <div class= "box" id="music" >
+          <h3> Top 90s Music</h3>
+          <form  id= "musicPlaylist" method="post">
+
+      		    <iframe src="https://open.spotify.com/embed?uri=spotify%3Auser%3Aslangner%3Aplaylist%3A1GtXrEYSoB73vqT9rl7l87" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
+
+      		    <input value='https://open.spotify.com/embed?uri=spotify%3Auser%3Aslangner%3Aplaylist%3A1GtXrEYSoB73vqT9rl7l87' type="hidden" name="saved_fact" readonly="true">
+      				<button>[+]</button>
+      	  </form>
+          </div>
+        </div>
+      <div class="box" id= "shows">
+        <h3> Top 5 TV Shows</h3>
         <ul>
-        <!-- mario game -->
-          <li>Super Mario Bros (1990)</li>
-          <img id= "mariopic" src= "http://www.texturemonkey.com/HCG/blog/superMarioWorld_%2812%29.jpg"/>
+          <li>Friends: 1994-2004</li>
+          <img id= "friendsPic" src= "https://static.tumblr.com/7eb8cc2099c988b3dedfac0e97bafd0b/erhrt6a/1s7nrbnjw/tumblr_static_tumblr_static__640.jpg"/>
           <form method='post'>
-      				<input value="http://www.texturemonkey.com/HCG/blog/superMarioWorld_%2812%29.jpg" type="hidden" name="saved_fact" readonly="true">
-      				<!-- set input value for caption of image to send to post function -->
-      				<input value='Super Mario Bros (1990)' type="hidden" name="caption" readonly="true">
-      				<button>[+]</button>
-      		</form>
-          <li>Secret of Monkey Island (1992)</li>
-            <img id= "secretOfMokeyIslandPic" src= "https://upload.wikimedia.org/wikipedia/en/a/a8/The_Secret_of_Monkey_Island_artwork.jpg"/>
-          <form method='post'>
-      				<input value="https://upload.wikimedia.org/wikipedia/en/a/a8/The_Secret_of_Monkey_Island_artwork.jpg" type="hidden" name="saved_fact" readonly="true">
-      				<!-- set input value for caption of image to send to post function -->
-      				<input value='Secret of of Monkey Island (1992)' type="hidden" name="caption" readonly="true">
-      				<button>[+]</button>
-      		</form>
-          <!-- Zelda Game -->
-          <li>Legend of Zelda (1990)</li>
-          <img id= "legendOfZelda" src= "https://gamefaqs.akamaized.net/box/0/5/0/21050_front.jpg"/>
-          <form method='post'>
-              <input value="https://gamefaqs.akamaized.net/box/0/5/0/21050_front.jpg" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='Legend of Zelda (1990)' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
+                <input value="https://static.tumblr.com/7eb8cc2099c988b3dedfac0e97bafd0b/erhrt6a/1s7nrbnjw/tumblr_static_tumblr_static__640.jpg" type="hidden" name="saved_fact" readonly="true">
+                <!-- set input value for caption of image to send to post function -->
+                <input value='Friends: 1994-2004' type="hidden" name="caption" readonly="true">
+                <button>[+]</button>
           </form>
-          <!-- Mega Man game -->
-          <li>Mega Man 3 (1991)</li>
-          <img id= "megaMan" src= "http://www.mobygames.com/images/covers/l/77923-mega-man-ii-game-boy-front-cover.jpg"/>
+
+          <li>Fresh Prince of Bel-Air: 1990-1996</li>
+          <img id= "freshPrincePic" src= "http://cdn03.cdn.justjared.com/wp-content/uploads/headlines/2015/03/c-span-gets-pranked-with-funny-fresh-prince-of-bel-air-call.jpg"/>
           <form method='post'>
-              <input value="http://www.mobygames.com/images/covers/l/77923-mega-man-ii-game-boy-front-cover.jpg" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='Mega Man 3 (1991)' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
+                <input value="http://cdn03.cdn.justjared.com/wp-content/uploads/headlines/2015/03/c-span-gets-pranked-with-funny-fresh-prince-of-bel-air-call.jpg" type="hidden" name="saved_fact" readonly="true">
+                <!-- set input value for caption of image to send to post function -->
+                <input value='Fresh Prince of Bel-Air: 1990-1996' type="hidden" name="caption" readonly="true">
+                <button>[+]</button>
           </form>
-          <!-- Resident Evil game -->
-          <li>Resident Evil (1996)</li>
-          <img id= "megaMan" src= "http://www.mobygames.com/images/covers/l/2919-resident-evil-windows-front-cover.jpg"/>
+
+          <li>Seinfeld: 1989- 1998</li>
+          <img id="seinfeldPic" src= "http://i0.kym-cdn.com/entries/icons/original/000/014/225/30188hiseinfeld1.jpg"/>
           <form method='post'>
-              <input value="http://www.mobygames.com/images/covers/l/2919-resident-evil-windows-front-cover.jpg" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='Super Mario Bros (1990)' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
+                <input value="http://i0.kym-cdn.com/entries/icons/original/000/014/225/30188hiseinfeld1.jpg" type="hidden" name="saved_fact" readonly="true">
+                <!-- set input value for caption of image to send to post function -->
+                <input value='Seinfeld: 1989- 1998' type="hidden" name="caption" readonly="true">
+                <button>[+]</button>
+          </form>
+
+
+          <li>The Simpsons : Since 1989</li>
+          <img id="simpsonsPic" src= "https://images-na.ssl-images-amazon.com/images/M/MV5BYjFkMTlkYWUtZWFhNy00M2FmLThiOTYtYTRiYjVlZWYxNmJkXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_UX182_CR0,0,182,268_AL_.jpg"/>
+          <form method='post'>
+                <input value="https://images-na.ssl-images-amazon.com/images/M/MV5BYjFkMTlkYWUtZWFhNy00M2FmLThiOTYtYTRiYjVlZWYxNmJkXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_UX182_CR0,0,182,268_AL_.jpg" type="hidden" name="saved_fact" readonly="true">
+                <!-- set input value for caption of image to send to post function -->
+                <input value='The Simpsons : Since 1989' type="hidden" name="caption" readonly="true">
+                <button>[+]</button>
+          </form>
+
+
+          <li>Boy Meets World 1993-2000</li>
+          <img id= "boyMeetsWorldPic" src= "http://img.123movies.to/2016/02/24/poster/0024c3041c1b5f19a84a472af8277dc5-boy-meets-world-season-4.jpg"/>
+          <form method='post'>
+                <input value="http://img.123movies.to/2016/02/24/poster/0024c3041c1b5f19a84a472af8277dc5-boy-meets-world-season-4.jpg" type="hidden" name="saved_fact" readonly="true">
+                <!-- set input value for caption of image to send to post function -->
+                <input value='Boy Meets World 1993-2000' type="hidden" name="caption" readonly="true">
+                <button>[+]</button>
           </form>
         </ul>
       </div>
-      <div class= "box" id="music" >
-        <h3> Top 90s Music</h3>
-        <form  id= "musicPlaylist" method="post">
-        
-    		    <iframe src="https://open.spotify.com/embed?uri=spotify%3Auser%3Aslangner%3Aplaylist%3A1GtXrEYSoB73vqT9rl7l87" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
 
-    		    <input value='https://open.spotify.com/embed?uri=spotify%3Auser%3Aslangner%3Aplaylist%3A1GtXrEYSoB73vqT9rl7l87' type="hidden" name="saved_fact" readonly="true">
-    				<button>[+]</button>
-    	  </form>
-        </div>
+      <div class="box" id="movies">
+        <h3> Top 5 Moives</h3>
+        <ul>
+          <li>Pulp Fiction: 1994</li>
+           <iframe id="pulpFictionVid" width="560" height="315" src="https://www.youtube.com/embed/ewlwcEBTvcg" frameborder="0" allowfullscreen></iframe>
+           <form method='post'>
+                <input value="https://www.youtube.com/embed/ewlwcEBTvcg" type="hidden" name="saved_fact" readonly="true">
+                <!-- set input value for caption of image to send to post function -->
+                <input value='Pulp Fiction: 1994' type="hidden" name="caption" readonly="true">
+                <button>[+]</button>
+          </form>
+
+          <li>Jurassic Park: 1993</li>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/lc0UehYemQA" frameborder="0" allowfullscreen></iframe>
+          <form method='post'>
+                <input value="https://www.youtube.com/embed/lc0UehYemQA" type="hidden" name="saved_fact" readonly="true">
+                <!-- set input value for caption of image to send to post function -->
+                <input value='Jurassic Park: 1993' type="hidden" name="caption" readonly="true">
+                <button>[+]</button>
+          </form>
+
+          <li>Toy Story: 1995</li>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/4KPTXpQehio" frameborder="0" allowfullscreen></iframe>
+          <form method='post'>
+                <input value="https://www.youtube.com/embed/4KPTXpQehio" type="hidden" name="saved_fact" readonly="true">
+                <!-- set input value for caption of image to send to post function -->
+                <input value='Toy Story: 1995' type="hidden" name="caption" readonly="true">
+                <button>[+]</button>
+          </form>
+
+          <li>Titanic: 1997</li>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/zCy5WQ9S4c0" frameborder="0" allowfullscreen></iframe>
+          <form method='post'>
+                <input value="https://www.youtube.com/embed/zCy5WQ9S4c0" type="hidden" name="saved_fact" readonly="true">
+                <!-- set input value for caption of image to send to post function -->
+                <input value='Titanic: 1997' type="hidden" name="caption" readonly="true">
+                <button>[+]</button>
+          </form>
+
+          <li>The GoodFellas: 1990</li>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/qo5jJpHtI1Y" frameborder="0" allowfullscreen></iframe>
+          <form method='post'>
+                <input value="https://www.youtube.com/embed/qo5jJpHtI1Y" type="hidden" name="saved_fact" readonly="true">
+                <!-- set input value for caption of image to send to post function -->
+                <input value='The GoodFellas: 1990' type="hidden" name="caption" readonly="true">
+                <button>[+]</button>
+          </form>
+        </ul>
       </div>
-    <div class="box" id= "shows">
-      <h3> Top 5 TV Shows</h3>
-      <ul>
-        <li>Friends: 1994-2004</li>
-        <img id= "friendsPic" src= "https://static.tumblr.com/7eb8cc2099c988b3dedfac0e97bafd0b/erhrt6a/1s7nrbnjw/tumblr_static_tumblr_static__640.jpg"/>
-        <form method='post'>
-              <input value="https://static.tumblr.com/7eb8cc2099c988b3dedfac0e97bafd0b/erhrt6a/1s7nrbnjw/tumblr_static_tumblr_static__640.jpg" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='Friends: 1994-2004' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-        </form>
-
-        <li>Fresh Prince of Bel-Air: 1990-1996</li>
-        <img id= "freshPrincePic" src= "http://cdn03.cdn.justjared.com/wp-content/uploads/headlines/2015/03/c-span-gets-pranked-with-funny-fresh-prince-of-bel-air-call.jpg"/>
-        <form method='post'>
-              <input value="http://cdn03.cdn.justjared.com/wp-content/uploads/headlines/2015/03/c-span-gets-pranked-with-funny-fresh-prince-of-bel-air-call.jpg" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='Fresh Prince of Bel-Air: 1990-1996' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-        </form>
-
-        <li>Seinfeld: 1989- 1998</li>
-        <img id="seinfeldPic" src= "http://i0.kym-cdn.com/entries/icons/original/000/014/225/30188hiseinfeld1.jpg"/>
-        <form method='post'>
-              <input value="http://i0.kym-cdn.com/entries/icons/original/000/014/225/30188hiseinfeld1.jpg" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='Seinfeld: 1989- 1998' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-        </form>
-
-
-        <li>The Simpsons : Since 1989</li>
-        <img id="simpsonsPic" src= "https://images-na.ssl-images-amazon.com/images/M/MV5BYjFkMTlkYWUtZWFhNy00M2FmLThiOTYtYTRiYjVlZWYxNmJkXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_UX182_CR0,0,182,268_AL_.jpg"/>
-        <form method='post'>
-              <input value="https://images-na.ssl-images-amazon.com/images/M/MV5BYjFkMTlkYWUtZWFhNy00M2FmLThiOTYtYTRiYjVlZWYxNmJkXkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_UX182_CR0,0,182,268_AL_.jpg" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='The Simpsons : Since 1989' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-        </form>
-
-
-        <li>Boy Meets World 1993-2000</li>
-        <img id= "boyMeetsWorldPic" src= "http://img.123movies.to/2016/02/24/poster/0024c3041c1b5f19a84a472af8277dc5-boy-meets-world-season-4.jpg"/>
-        <form method='post'>
-              <input value="http://img.123movies.to/2016/02/24/poster/0024c3041c1b5f19a84a472af8277dc5-boy-meets-world-season-4.jpg" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='Boy Meets World 1993-2000' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-        </form>
-      </ul>
-    </div>
-
-    <div class="box" id="movies">
-      <h3> Top 5 Moives</h3>
-      <ul>
-        <li>Pulp Fiction: 1994</li>
-         <iframe id="pulpFictionVid" width="560" height="315" src="https://www.youtube.com/embed/ewlwcEBTvcg" frameborder="0" allowfullscreen></iframe>
-         <form method='post'>
-              <input value="https://www.youtube.com/embed/ewlwcEBTvcg" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='Pulp Fiction: 1994' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-        </form>
-
-        <li>Jurassic Park: 1993</li>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/lc0UehYemQA" frameborder="0" allowfullscreen></iframe>
-        <form method='post'>
-              <input value="https://www.youtube.com/embed/lc0UehYemQA" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='Jurassic Park: 1993' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-        </form>
-
-        <li>Toy Story: 1995</li>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/4KPTXpQehio" frameborder="0" allowfullscreen></iframe>
-        <form method='post'>
-              <input value="https://www.youtube.com/embed/4KPTXpQehio" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='Toy Story: 1995' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-        </form>
-
-        <li>Titanic: 1997</li>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/zCy5WQ9S4c0" frameborder="0" allowfullscreen></iframe>
-        <form method='post'>
-              <input value="https://www.youtube.com/embed/zCy5WQ9S4c0" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='Titanic: 1997' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-        </form>
-
-        <li>The GoodFellas: 1990</li>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/qo5jJpHtI1Y" frameborder="0" allowfullscreen></iframe>
-        <form method='post'>
-              <input value="https://www.youtube.com/embed/qo5jJpHtI1Y" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='The GoodFellas: 1990' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-        </form>
-      </ul>
-    </div>
-  </section>
-  </body>
-</head>
+    </section>
+    </body>
+  </head>
 </html>

@@ -97,10 +97,9 @@ body{
   background-position: center;
   font-family:
 }
-#title{
+/*#title{
   text-align:center;
-}
-
+}*/
 .tablink {
   background-color: red;
   color: white;
@@ -111,3 +110,7 @@ body{
   padding: 14px 16px;
   font-size: 17px;
   width: 25%;
+}
+#entertainment{
+  text-align: center;
+}
