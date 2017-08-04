@@ -7,7 +7,7 @@
       <button class= "tablink" id= "ScientificDisc"><a href= "/90sScientificDisc">Scientific Discoveries</a></button>
       <button class= "tablink" id= "FunFacts"><a href= "/90sFunFacts">Fun Facts</a></button>
       <button class= "tablink" id= "SpecialEventsNews"><a href= "/90sSpecialEventsNews">Special Events/News</a></button>
-    <h1 id="title">Entertainment</h1>
+    <h1> Entertainment </h1>
     <section id= "parent">
       <div id= "musicngames">
         <div class="box" id="games">
@@ -70,6 +70,57 @@
       	  </form>
           </div>
         </div>
+
+
+      <div class="box" id="movies">
+        <h3> Top 5 Moives</h3>
+        <ul>
+          <li>Pulp Fiction: 1994</li>
+           <iframe id="pulpFictionVid" width="560" height="315" src="https://www.youtube.com/embed/ewlwcEBTvcg" frameborder="0" allowfullscreen></iframe>
+           <form method='post'>
+                <input value="https://www.youtube.com/embed/ewlwcEBTvcg" type="hidden" name="saved_fact" readonly="true">
+                <!-- set input value for caption of image to send to post function -->
+                <input value='Pulp Fiction: 1994' type="hidden" name="caption" readonly="true">
+                <button>[+]</button>
+          </form>
+
+          <li>Jurassic Park: 1993</li>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/lc0UehYemQA" frameborder="0" allowfullscreen></iframe>
+          <form method='post'>
+                <input value="https://www.youtube.com/embed/lc0UehYemQA" type="hidden" name="saved_fact" readonly="true">
+                <!-- set input value for caption of image to send to post function -->
+                <input value='Jurassic Park: 1993' type="hidden" name="caption" readonly="true">
+                <button>[+]</button>
+          </form>
+
+          <li>Toy Story: 1995</li>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/4KPTXpQehio" frameborder="0" allowfullscreen></iframe>
+          <form method='post'>
+                <input value="https://www.youtube.com/embed/4KPTXpQehio" type="hidden" name="saved_fact" readonly="true">
+                <!-- set input value for caption of image to send to post function -->
+                <input value='Toy Story: 1995' type="hidden" name="caption" readonly="true">
+                <button>[+]</button>
+          </form>
+
+          <li>Titanic: 1997</li>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/zCy5WQ9S4c0" frameborder="0" allowfullscreen></iframe>
+          <form method='post'>
+                <input value="https://www.youtube.com/embed/zCy5WQ9S4c0" type="hidden" name="saved_fact" readonly="true">
+                <!-- set input value for caption of image to send to post function -->
+                <input value='Titanic: 1997' type="hidden" name="caption" readonly="true">
+                <button>[+]</button>
+          </form>
+
+          <li>The GoodFellas: 1990</li>
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/qo5jJpHtI1Y" frameborder="0" allowfullscreen></iframe>
+          <form method='post'>
+                <input value="https://www.youtube.com/embed/qo5jJpHtI1Y" type="hidden" name="saved_fact" readonly="true">
+                <!-- set input value for caption of image to send to post function -->
+                <input value='The GoodFellas: 1990' type="hidden" name="caption" readonly="true">
+                <button>[+]</button>
+          </form>
+        </ul>
+      </div>
       <div class="box" id= "shows">
         <h3> Top 5 TV Shows</h3>
         <ul>
@@ -99,48 +150,6 @@
                 <input value='Seinfeld: 1989- 1998' type="hidden" name="caption" readonly="true">
                 <button>[+]</button>
           </form>
-        </ul>
-      </div>
-      <div class= "box" id="music" >
-        <h3> Top 90s Music</h3>
-        <form  id= "musicPlaylist" method="post">
-
-    		    <iframe src="https://open.spotify.com/embed?uri=spotify%3Auser%3Aslangner%3Aplaylist%3A1GtXrEYSoB73vqT9rl7l87" width="300" height="380" frameborder="0" allowtransparency="true"></iframe>
-
-    		    <input value='https://open.spotify.com/embed?uri=spotify%3Auser%3Aslangner%3Aplaylist%3A1GtXrEYSoB73vqT9rl7l87' type="hidden" name="saved_fact" readonly="true">
-    				<button>[+]</button>
-    	  </form>
-        </div>
-      </div>
-    <div class="box" id= "shows">
-      <h3> Top 5 TV Shows</h3>
-      <ul>
-        <li>Friends: 1994-2004</li>
-        <img id= "friendsPic" src= "https://static.tumblr.com/7eb8cc2099c988b3dedfac0e97bafd0b/erhrt6a/1s7nrbnjw/tumblr_static_tumblr_static__640.jpg"/>
-        <form method='post'>
-              <input value="https://static.tumblr.com/7eb8cc2099c988b3dedfac0e97bafd0b/erhrt6a/1s7nrbnjw/tumblr_static_tumblr_static__640.jpg" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='Friends: 1994-2004' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-        </form>
-
-        <li>Fresh Prince of Bel-Air: 1990-1996</li>
-        <img id= "freshPrincePic" src= "http://cdn03.cdn.justjared.com/wp-content/uploads/headlines/2015/03/c-span-gets-pranked-with-funny-fresh-prince-of-bel-air-call.jpg"/>
-        <form method='post'>
-              <input value="http://cdn03.cdn.justjared.com/wp-content/uploads/headlines/2015/03/c-span-gets-pranked-with-funny-fresh-prince-of-bel-air-call.jpg" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='Fresh Prince of Bel-Air: 1990-1996' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-        </form>
-
-        <li>Seinfeld: 1989- 1998</li>
-        <img id="seinfeldPic" src= "http://i0.kym-cdn.com/entries/icons/original/000/014/225/30188hiseinfeld1.jpg"/>
-        <form method='post'>
-              <input value="http://i0.kym-cdn.com/entries/icons/original/000/014/225/30188hiseinfeld1.jpg" type="hidden" name="saved_fact" readonly="true">
-              <!-- set input value for caption of image to send to post function -->
-              <input value='Seinfeld: 1989- 1998' type="hidden" name="caption" readonly="true">
-              <button>[+]</button>
-        </form>
 
 
           <li>The Simpsons : Since 1989</li>
