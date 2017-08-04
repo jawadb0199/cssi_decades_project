@@ -5,7 +5,7 @@ h3{
 #shows {
   color: #DC143C;
   background-color: black;
-  margin-right:20px;
+  /*margin-right:20px;*/
 }
 #musicPlaylist{
   padding-right: 30px;
@@ -33,6 +33,7 @@ h3{
 #mariopic{
   width:200px;
   height:200px;
+  margin-right: 100px;
 }
 #secretOfMokeyIslandPic{
   width:200px;
@@ -52,7 +53,7 @@ h3{
 }
 #movies{
   color: #DC143C;
-  margin-right: 150px;
+  margin-right: 15px;
   background-color: black;
 
 }
@@ -74,30 +75,31 @@ h3{
 
 }
 #friendsPic{
-  width: 400px;
+  width: 355px;
   padding-right: 10px;
 }
 
 #freshPrincePic{
-width:400px;
+width:355px;
 padding-right: 10px;
-height:200px;
+height:300px;
 }
 
 #seinfeldPic{
-  width: 400px;
+  width: 355px;
   padding-right: 10px;
   height: 200px;
 }
 #simpsonsPic{
-  width: 400px;
+  width: 355px;
   padding-right: 10px;
-  height: 300px;
+  height: 355px;
 }
 
 #boyMeetsWorldPic{
-  width: 200px;
+  width: 355px;
   padding-right: 10px;
+  height: 200px
   text-align: center;
 }
 /*#parent{
@@ -118,13 +120,12 @@ body{
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
-  font-family:
 }
 /*#title{
   text-align:center;
 }*/
 .tablink {
-  background-color: red;
+  background-color: #BA55D3;
   color: white;
   float: left;
   border: none;
@@ -134,9 +135,10 @@ body{
   font-size: 17px;
   width: 25%;
 }
-<<<<<<< HEAD
-#entertainment{
+
+h1{
   text-align: center;
 }
-=======
->>>>>>> 62073095fcdbda53cac791171208e22d5772dba3
+a{
+text-decoration: none;
+}

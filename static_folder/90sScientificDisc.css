@@ -7,7 +7,11 @@ body{
   color: white;
   font-size:30px;
 }
+a {
+  color: white;
+  text-decoration: none;
 
+}
 h1{
   color: white;
   font-size: 50px;
@@ -16,6 +20,7 @@ h1{
  ul{
    color: white;
    font-size: 30px;
+   list-style: none;
  }
  #Photoshop{
   text-align: center;

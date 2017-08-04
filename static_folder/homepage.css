@@ -23,15 +23,16 @@ h1{
   background-color: red;
 }
 .tablink {
+    /*border: 5px dashed white;*/
     /*background-color: red;*/
     color: white;
     float: left;
-    /*border: none;*/
+    border: none;
     outline: none;
-    cursor: hand;
+    cursor: pointer;
     padding: 12px 12px;
     font-size: 17px;
-    width: 100%;
+    width: 22%;
     text-align: center;
 }
 #parent li{
