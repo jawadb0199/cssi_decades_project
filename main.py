@@ -208,7 +208,7 @@ class EightiesScientificDiscHandler(webapp2.RequestHandler):
 		template = jinja_environment.get_template('/templates/80sScientificDisc.html')
 		self.response.write(template.render())
     def post(self):
-        template = jinja_environment.get_template('/templates/80sScientificDischtml')
+        template = jinja_environment.get_template('/templates/80sScientificDisc.html')
         AddBookmark(self)
         self.response.write(template.render())
 
