@@ -15,24 +15,39 @@
 # limitations under the License.
 #
 import webapp2
+import pickle
 import json
 import logging
 import urllib2
 import jinja2
 import os
 from google.appengine.ext import ndb
+from google.appengine.api import users
 
-# exists = False
-variables = {'bookmarks': [
-
+login_dict = {}
+user = ''
+# user_key = ''
+# nickname = ''
+variables = {"bookmarks": [
 ]}
 
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
 
-def AddBookmark(self):
-    # pass
+def AddUserBookmark(self):
+    if user:
+        current_user = UserBookmarks.get_by_id(user_key)
+        variables = current_user.user_bookmarks
+        AddUserBookmark(self)
+        for bookmark in variables["bookmarks"]:
+            print bookmark[caption]
+        current_user.put()
+    else:
+        AddUserBookmark(self)
+
+
+def AddUserBookmark(self):
     saved_fact = self.request.get("saved_fact")
     new_caption = self.request.get('caption')
     logging.info(saved_fact)
@@ -63,8 +78,34 @@ def AddBookmark(self):
     return variables
 
 
+class UserBookmarks(ndb.Model):
+    username = ndb.StringProperty()
+    user_bookmarks = ndb.PickleProperty()
+
+
+def UserLogin(login_dict={}):
+    user = users.get_current_user()
+    nickname = ''
+    user_key = ''
+    if user:
+        print user
+        nickname = user.nickname()
+        logout_url = users.create_logout_url('/')
+        greeting = '<p id="username" >Welcome, {}! <a id="login_link" href="{}">Sign Out</a></p>'.format(nickname, logout_url)
+        user_list = UserBookmarks.query().fetch()
+        if nickname not in user_list:
+            new_user = UserBookmarks(username=nickname, user_bookmarks=variables["bookmarks"])
+            user_key = new_user.put()
+    else:
+        login_url = users.create_login_url('/')
+        greeting = '<a id="login_link" href="{}">Log in to save your Bookmarks!</a>.'.format(login_url)
+        # variables["bookmarks"] = []
+    login_dict['header'] = greeting
+    return login_dict, user, nickname, user_key
+
+
 class Feedback(ndb.Model):
-    # Feedback to send to datastoe
+    # Feedback to send to datastore
     email = ndb.StringProperty()
     name = ndb.StringProperty()
     rating = ndb.IntegerProperty()
@@ -86,173 +127,195 @@ class FeedbackHandler(webapp2.RequestHandler):
         new_feedback.put()
         self.response.write(template.render())
 
-# class MainHandler(webapp2.RequestHandler):
-#     def get(self):
-#         self.response.write('Hello world!')
-
 
 class HomePageHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('/templates/homepage.html')
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        self.response.write(template.render(login_dict))
 
 
-# this section is just for the 1990s Handlers
+# 1990s Handlers (121-179)
 class NintiesPageHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('/templates/1990s.html')
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        self.response.write(template.render(login_dict))
 
 
 class NintiesEntertainmentHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('/templates/90sEntertainment.html')
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        self.response.write(template.render(login_dict))
 
     def post(self):
         template = jinja_environment.get_template('/templates/90sEntertainment.html')
-        AddBookmark(self)
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        AddUserBookmark(self)
+        self.response.write(template.render(login_dict))
 
 
 class NintiesScientificDiscHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('/templates/90sScientificDisc.html')
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        self.response.write(template.render(login_dict))
 
     def post(self):
         template = jinja_environment.get_template('/templates/90sScientificDisc.html')
-        AddBookmark(self)
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        AddUserBookmark(self)
+        self.response.write(template.render(login_dict))
 
 
 class NintiesFunFactsHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('/templates/90sFunFacts.html')
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        self.response.write(template.render(login_dict))
 
     def post(self):
         template = jinja_environment.get_template('/templates/90sFunFacts.html')
-        AddBookmark(self)
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        AddUserBookmark(self)
+        self.response.write(template.render(login_dict))
 
 
 class NintiesSpecialEventsNewsHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('/templates/90sSpecialEventsNews.html')
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        self.response.write(template.render(login_dict))
 
     def post(self):
         template = jinja_environment.get_template('/templates/90sSpecialEventsNews.html')
-        AddBookmark(self)
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        AddUserBookmark(self)
+        self.response.write(template.render(login_dict))
 # End of 90s Handlers
 
-# Beginning of 2000s Handlers
 
-
+# 2000s Handlers (182-231)
 class TwoThousandsPageHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('/templates/2000s.html')
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        self.response.write(template.render(login_dict))
 
 
 class TwoThousandsEntertainmentHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('/templates/00sEntertainment.html')
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        self.response.write(template.render(login_dict))
 
     def post(self):
         template = jinja_environment.get_template('/templates/00sEntertainment.html')
-        AddBookmark(self)
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        AddUserBookmark(self)
+        self.response.write(template.render(login_dict))
 
 
 class TwoThousandsScientificDiscHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('/templates/00sScientificDiscoveries.html')
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        self.response.write(template.render(login_dict))
 
     def post(self):
         template = jinja_environment.get_template('/templates/00sScientificDiscoveries.html')
-        AddBookmark(self)
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        AddUserBookmark(self)
+        self.response.write(template.render(login_dict))
 
 
 class TwoThousandsFunFactsHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('/templates/00sFunfacts.html')
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        self.response.write(template.render(login_dict))
 
     def post(self):
         template = jinja_environment.get_template('/templates/00sFunfacts.html')
-        AddBookmark(self)
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        AddUserBookmark(self)
+        self.response.write(template.render(login_dict))
 
 
 class TwoThousandsSpecialEventsNewsHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('/templates/00sSpecialEventsNews.html')
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        self.response.write(template.render(login_dict))
 
     def post(self):
         template = jinja_environment.get_template('/templates/00sSpecialEventsNews.html')
-        AddBookmark(self)
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        AddUserBookmark(self)
+        self.response.write(template.render(login_dict))
+# End of 2000s Handlers
 
 
-#  of 2000s Handlers
-
-# Beginning of 1980s Handlers
+# 1980s Handlers (234-284)
 class EightiesPageHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('/templates/1980s.html')
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        self.response.write(template.render(login_dict))
 
 
 class EightiesEntertainmentHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('/templates/80sEntertainment.html')
-        self.response.write(template.render())
-        # AddBookmark(self)
+        UserLogin(login_dict)
+        self.response.write(template.render(login_dict))
+        # AddUserBookmark(self)
 
     def post(self):
         template = jinja_environment.get_template('/templates/80sEntertainment.html')
-        AddBookmark(self)
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        AddUserBookmark(self)
+        self.response.write(template.render(login_dict))
 
 
 class EightiesScientificDiscHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('/templates/80sScientificDisc.html')
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        self.response.write(template.render(login_dict))
 
     def post(self):
         template = jinja_environment.get_template('/templates/80sScientificDisc.html')
-        AddBookmark(self)
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        AddUserBookmark(self)
+        self.response.write(template.render(login_dict))
 
 
 class EightiesFunFactsHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('/templates/80sFunFacts.html')
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        self.response.write(template.render(login_dict))
 
     def post(self):
         template = jinja_environment.get_template('/templates/80sFunFacts.html')
-        AddBookmark(self)
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        AddUserBookmark(self)
+        self.response.write(template.render(login_dict))
 
 
 class EightiesSpecialEventsNewsHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('/templates/80sSpecialEventsNews.html')
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        self.response.write(template.render(login_dict))
 
     def post(self):
         template = jinja_environment.get_template('/templates/80sSpecialEventsNews.html')
-        AddBookmark(self)
-        self.response.write(template.render())
+        UserLogin(login_dict)
+        AddUserBookmark(self)
+        self.response.write(template.render(login_dict))
 # End of 80s Handlers
 
 
@@ -264,34 +327,10 @@ class DecadeHandler(webapp2.RequestHandler):
 
     def post(self):
         template = jinja_environment.get_template('/templates/spotify.html')
-        saved_fact = self.request.get("saved_fact")
-        new_caption = self.request.get('caption')
-        logging.info(saved_fact)
-        logging.info(new_caption)
-        if len(variables['bookmarks']) == 0:
-            exists = False
-        else:
-            for bookmark in variables['bookmarks']:
-                if bookmark['caption'] == new_caption:
-                    exists = True
-                else:
-                    exists = False
-                    break
-        # else:
-        #     exists = False
-        if not exists:
-            if 'spotify' in saved_fact:
-                fact_type = 'spotify'
-            elif 'youtube' in saved_fact:
-                fact_type = 'youtube'
-            elif 'jpg' in saved_fact or 'png' in saved_fact:
-                fact_type = 'picture'
-            variables['bookmarks'].append({'caption': new_caption, 'fact_url': saved_fact, 'type': fact_type})
-        logging.info(variables)
         self.response.write(template.render())
 
 
-class ToDoListHandler(webapp2.RequestHandler):
+class BookmarkHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('/templates/to_do_list.html')
         logging.info(variables)
@@ -310,27 +349,27 @@ class ToDoListHandler(webapp2.RequestHandler):
 
 
 app = webapp2.WSGIApplication([
-    # ('/', MainHandler),
     ('/', HomePageHandler),
-    # 90s Links
-    ('/1990s', NintiesPageHandler),
-    ('/90sEntertainment', NintiesEntertainmentHandler),
-    ('/90sScientificDisc', NintiesScientificDiscHandler),
-    ('/90sFunFacts', NintiesFunFactsHandler),
-    ('/90sSpecialEventsNews', NintiesSpecialEventsNewsHandler),
-    # 2000s Links
-    ('/2000s', TwoThousandsPageHandler),
-    ('/00sEntertainment', TwoThousandsEntertainmentHandler),
-    ('/00sFunfacts', TwoThousandsFunFactsHandler),
-    ('/00sScientificDisc', TwoThousandsScientificDiscHandler),
-    ('/00sSpecialEventsNews', TwoThousandsSpecialEventsNewsHandler),
-    # 1980s Links
-    ('/1980s', EightiesPageHandler),
-    ('/80sEntertainment', EightiesEntertainmentHandler),
-    ('/80sFunFacts', EightiesFunFactsHandler),
-    ('/80sScientificDisc', EightiesScientificDiscHandler),
-    ('/80sSpecialEventsNews', EightiesSpecialEventsNewsHandler),
+    # 1990s Handlers
+    ('/1990', NintiesPageHandler),
+    ('/1990/Entertainment', NintiesEntertainmentHandler),
+    ('/1990/ScientificDisc', NintiesScientificDiscHandler),
+    ('/1990/FunFacts', NintiesFunFactsHandler),
+    ('/1990/SpecialEventsNews', NintiesSpecialEventsNewsHandler),
+    # 2000s Handlers
+    ('/2000', TwoThousandsPageHandler),
+    ('/2000/Entertainment', TwoThousandsEntertainmentHandler),
+    ('/2000/Funfacts', TwoThousandsFunFactsHandler),
+    ('/2000/ScientificDisc', TwoThousandsScientificDiscHandler),
+    ('/2000/SpecialEventsNews', TwoThousandsSpecialEventsNewsHandler),
+    # 1980s Hanlders
+    ('/1980', EightiesPageHandler),
+    ('/1980/Entertainment', EightiesEntertainmentHandler),
+    ('/1980/FunFacts', EightiesFunFactsHandler),
+    ('/1980/ScientificDisc', EightiesScientificDiscHandler),
+    ('/1980/SpecialEventsNews', EightiesSpecialEventsNewsHandler),
+    # Other Handlers
     ('/decade', DecadeHandler),
-    ('/todolist', ToDoListHandler),
+    ('/bookmarks', BookmarkHandler),
     ('/feedback', FeedbackHandler)
 ], debug=True)

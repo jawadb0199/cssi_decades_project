@@ -15,8 +15,21 @@ a {
 h1{
   color: white;
   font-size: 50px;
-
+  text-decoration: underline;
 }
+
+#username{
+  color: white;
+  text-decoration: none;
+  text-align: left;
+  font-size: 16px;
+}
+#login_link{
+  color: white;
+  text-decoration: underline;
+  font-size: 16px;
+}
+
  ul{
    color: white;
    font-size: 30px;

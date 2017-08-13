@@ -8,7 +8,8 @@ body{
 h1{
   color: black;
   font-size: 50px;
-
+  text-align: center;
+  text-decoration: underline;
 }
  ul{
    color: black;
@@ -21,6 +22,18 @@ h1{
 #DNA{
   height: 400px;
   width: 650px;
+}
+
+#username{
+  color: black;
+  text-decoration: none;
+  text-align: left;
+  font-size: 16px;
+}
+#login_link{
+  color: black;
+  text-decoration: underline;
+  font-size: 16px;
 }
 
 #sixthSense{

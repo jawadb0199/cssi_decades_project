@@ -1,11 +1,13 @@
 h3{
   font-family: anton;
+  text-align: center;
+  text-decoration: underline;
 }
 
 #shows {
   color: #DC143C;
   background-color: black;
-  margin-right:100px;
+  margin-right:10px;
 }
 
 #cheersPic{
@@ -40,14 +42,36 @@ height:200px;
   padding-right: 30px;
   height: 3000px;
 }
-#musicngames{
+/*#musicngames{
   color: #DC143C;
   background-color: black;
   margin-right: 100px;
   padding-left: 250px;
   margin-left: 100px;
   height: 1820px;
+}*/
+
+#musicngames{
+  color: #DC143C;
+  background-color:black;
+  margin-right: 10px;
+  padding-left: 0px;
+  padding-right: 0px;
+  margin-left: 0px;
+  height: 1820px;
+  /*border: 3px solid orange;*/
 }
+
+#username{
+  color: black;
+  text-decoration: none;
+  text-align: left;
+}
+#login_link{
+  color: black;
+  text-decoration: underline;
+}
+
 #defenderpic{
   width:200px;
   height:200px;
@@ -71,25 +95,16 @@ height:200px;
   display: flex;
 }
 
-#title{
-  padding-left: 500px;
-  padding-top: 10px;
-  background-color: black;
-  color: white;
-  font-family: Jazz LET, fantasy;
-}
 #movies{
   color: #DC143C;
-  margin-right: 150px;
+  margin-right: 0px;
   background-color: black;
-
 }
 
 #aliens{
   color: #DC143C;
-  padding-right:40px;
-  background-color: black;
-
+  padding-right:20px;
+  background-
 }
 
 #parent{
@@ -103,10 +118,21 @@ body{
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
-  font-family:
+  /*font-family:;*/
 }
-#title{
+/*#title{
   text-align:center;
+  text-decoration: underline;
+}*/
+
+#title{
+  /*padding-left: 400px;*/
+  color: #DC143C;
+  padding-left: 0px;
+  font-family: Jazz LET, fantasy;
+  /*justify-content: center;*/
+  text-align: center;
+  text-decoration: underline;
 }
 
 .tablink {

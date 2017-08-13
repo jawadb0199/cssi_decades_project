@@ -1,16 +1,29 @@
 
 h1{
   text-align: center;
+  text-decoration: underline;
 }
 /*This section is for tv shows*/
 #shows {
   color: #DC143C;
   background-color: black;
-  margin-right:20px;
+  margin-right:10px;
 }
 #csiPic{
   width: 400px;
   padding-right: 10px;
+}
+
+#username{
+  color: black;
+  text-decoration: none;
+  text-align: left;
+  font-size: 16px;
+}
+#login_link{
+  color: black;
+  text-decoration: underline;
+  font-size: 16px;
 }
 
 #malcolmInTheMiddle{
@@ -43,17 +56,17 @@ height:200px;
 #musicngames{
   color: #DC143C;
   background-color:black;
-  margin-right: 20px;
+  margin-right: 10px;
   padding-left: 0px;
   padding-right: 0px;
   margin-left: 0px;
   height: 1820px;
-  border: 3px solid orange;
+  /*border: 3px solid orange;*/
 }
 
 #games{
   padding-right: 0px;
-  border: 3px solid yellow;
+  /*border: 3px solid yellow;*/
 }
 
 #counterStrikepic{
@@ -84,13 +97,13 @@ height:200px;
 /*This section is for the movies */
 #movies{
   color: #DC143C;
-  margin-right: 150px;
+  margin-right: 0px;
   background-color: black;
 }
 
 #darkKnightVid{
   color: #DC143C;
-  padding-right:40px;
+  padding-right: 24px;
   background-color: black;
 }
 
@@ -110,16 +123,15 @@ body{
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
-  font-family:
+  /*font-family:*/
 }
+
 #title{
   text-align: center;
   /*padding-left: 500px;*/
   padding-top: 10px;
-  background-color: black;
-  color: white;
+  color: black;
   font-family: Jazz LET, fantasy;
-
 }
 
 .tablink {

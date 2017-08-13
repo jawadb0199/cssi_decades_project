@@ -9,6 +9,15 @@ a {
   text-decoration: none;
 
 }
+#username{
+  color: white;
+  text-decoration: none;
+}
+#login_link{
+  color: white;
+  text-decoration: underline;
+}
+
 h1{
   font-family: fantasy;
   color: white;

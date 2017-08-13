@@ -1,5 +1,17 @@
 h3{
   font-family: anton;
+  text-decoration: underline;
+  text-align: center;
+}
+
+#username{
+  color: black;
+  text-decoration: none;
+  text-align: left;
+}
+#login_link{
+  color: black;
+  text-decoration: underline;
 }
 
 #shows {
@@ -12,14 +24,7 @@ h3{
   padding-right: 30px;
   height: 600px;
 }
-/*#musicngames{
-  color: #DC143C;
-  background-color: black;
-  margin-right: 100px;
-  padding-left: 250px;
-  margin-left: 100px;
-  height: 1820px;
-}*/
+
 #musicngames{
   color: #DC143C;
   background-color:black;
@@ -87,9 +92,9 @@ height:300px;
 }
 
 #seinfeldPic{
-  width: 355px;
-  padding-right: 10px;
   height: 200px;
+  padding-right: 10px;
+  width: 355px;
 }
 #simpsonsPic{
   width: 355px;
@@ -139,6 +144,7 @@ body{
 
 h1{
   text-align: center;
+  text-decoration: underline;
 }
 a{
 text-decoration: none;

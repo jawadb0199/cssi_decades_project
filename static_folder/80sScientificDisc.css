@@ -9,10 +9,23 @@ body{
 }
 
 h1{
-  color: white;
+  color: black;
   font-size: 50px;
-
+  text-decoration: underline;
 }
+
+#username{
+  color: black;
+  text-decoration: none;
+  text-align: left;
+  font-size: 16px;
+}
+#login_link{
+  color: black;
+  text-decoration: underline;
+  font-size: 16px;
+}
+
  ul{
    color: 	#FFD700;
    font-size: 30px;

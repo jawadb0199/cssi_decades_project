@@ -3,8 +3,7 @@ body{
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
-  text-align: center;
-  color: #	#00FF00;
+  color: #00FF00;
 }
 
 #facts{
@@ -24,6 +23,20 @@ body{
   padding: 14px 16px;
   font-size: 17px;
   width: 25%;
-img{
+}
 
+#username{
+  text-decoration: none;
+  text-align: left;
+  font-size: 16px;
+}
+#login_link{
+  color: #00FF00;
+  text-decoration: underline;
+  font-size: 16px;
+}
+
+h1{
+  text-align: center;
+  text-decoration: underline;
 }

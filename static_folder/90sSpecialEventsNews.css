@@ -12,6 +12,18 @@ font-size: 30px;
 list-style: none;
 }
 
+#username{
+  color: white;
+  text-decoration: none;
+  text-align: left;
+  font-size: 16px;
+}
+#login_link{
+  color: white;
+  text-decoration: underline;
+  font-size: 16px;
+}
+
 #ojPic{
   text-align: center;
   width: 450px;
@@ -42,6 +54,8 @@ list-style: none;
 h1{
   font-family: sans-serif;
   font-weight: 700;
+  text-align: center;
+  text-decoration: underline;
 }
 a{
 text-decoration: none;

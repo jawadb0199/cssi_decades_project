@@ -3,12 +3,19 @@ h1{
   text-align: center;
   color: white;
 }
+
 body{
-  background-image: url("https://ak8.picdn.net/shutterstock/videos/21902974/thumb/1.jpg?i10c=img.resize(height:160)");
+  background-image: url("http://smartfuse.s3.amazonaws.com/ea6cf035faea6cf035fae/uploads/2016/07/decades-logo.png");
   background-attachment: fixed;
   background-size: cover;
   background-position: center;
 }
+
 li{
   color: white;
+}
+
+#home_button{
+    color: white;
+    text-decoration: underline;
 }

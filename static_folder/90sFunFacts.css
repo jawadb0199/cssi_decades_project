@@ -8,14 +8,28 @@ body{
   font-size: 50px;
 }
 h1{
-  color: #FFD700	;
+  color: #FFD700;
   font-size: 50px;
+  text-decoration: underline;
 
 }
+
+#username{
+  color: #FFD700;
+  text-decoration: none;
+  text-align: left;
+  font-size: 16px;
+}
+#login_link{
+  color: #FFD700;
+  text-decoration: underline;
+  font-size: 16px;
+}
+
  li{
    background-color: #00008B;
    /*border: 5px dashed white;*/
-   color: #FFD700	;
+   color: #FFD700;
    font-size: 30px;
    list-style: none;
  }

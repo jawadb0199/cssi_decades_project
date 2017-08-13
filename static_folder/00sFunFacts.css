@@ -4,7 +4,11 @@ body{
   background-size: cover;
   background-position: center;
   color: #00CED1;
+}
+
+h1{
   text-align: center;
+  text-decoration: underline;
 }
 
 #facts{
@@ -14,6 +18,19 @@ body{
   width: 450px;
   height:450px;
 }
+
+#username{
+  color: #00CED1;
+  text-decoration: none;
+  text-align: left;
+  font-size: 16px;
+}
+#login_link{
+  color: #00CED1;
+  text-decoration: underline;
+  font-size: 16px;
+}
+
 .tablink {
   background-color: #00FFFF;
   color: white;

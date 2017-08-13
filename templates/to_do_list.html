@@ -1,38 +1,39 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<link rel="stylesheet" href="/resources/to_do_list.css">
-	<title></title>
+    <link rel="stylesheet" href="/resources/to_do_list.css">
+    <title></title>
 </head>
 <body>
-	<h1>Bookmark Section </h1>
-	<ul>
-		{% for bookmark in bookmarks %}
-		<!-- <div>{{bookmark}}</div> -->
-				{% if bookmark['type'] == 'spotify' %}
-					<li>{{ bookmark['caption'] }}</li>
-						<form method="post">
-							<iframe src="{{ bookmark['fact_url'] }}" height="380" frameborder="0" allowtransparency="true"></iframe>
-							<input value="{{bookmark['caption']}}" type="hidden" name="deleted_fact" readonly="true">
-							<button>[-]</button>
-						</form>
-				{% elif bookmark['type'] == 'youtube' %}
-				<!-- Items with youtube embed links and '19' in caption for the year to -->
-					<li>{{ bookmark['caption'] }}</li>
-						<form method="post">
-							<iframe src="{{ bookmark['fact_url'] }}" width='560' height="315" frameborder="0"></iframe>
-							<input value="{{ bookmark['caption'] }}" type="hidden" name="deleted_fact" readonly="true">
-							<button>[-]</button>
-						</form>
-				{% elif bookmark['type'] == 'picture' %}
-					<li>{{bookmark['caption']}}</li>
-						<form method="post">
-							<img src="{{ bookmark['fact_url'] }}" width="560" >
-							<input value="{{ bookmark['caption'] }}" type="hidden" name="deleted_fact" readonly="true">
-							<button>[-]</button>
-						</form>
-				{% endif %}
-		{% endfor %}
-	</ul>
+    <a id="home_button" href="/">Return to Homepage</a>
+    <h1>Bookmark Section </h1>
+    <ul>
+        {% for bookmark in bookmarks %}
+        <!-- <div>{{bookmark}}</div> -->
+                {% if bookmark['type'] == 'spotify' %}
+                    <li>{{ bookmark['caption'] }}</li>
+                        <form method="post">
+                            <iframe src="{{ bookmark['fact_url'] }}" height="380" frameborder="0" allowtransparency="true"></iframe>
+                            <input value="{{bookmark['caption']}}" type="hidden" name="deleted_fact" readonly="true">
+                            <button>[-]</button>
+                        </form>
+                {% elif bookmark['type'] == 'youtube' %}
+                <!-- Items with youtube embed links and '19' in caption for the year to -->
+                    <li>{{ bookmark['caption'] }}</li>
+                        <form method="post">
+                            <iframe src="{{ bookmark['fact_url'] }}" width='560' height="315" frameborder="0"></iframe>
+                            <input value="{{ bookmark['caption'] }}" type="hidden" name="deleted_fact" readonly="true">
+                            <button>[-]</button>
+                        </form>
+                {% elif bookmark['type'] == 'picture' %}
+                    <li>{{bookmark['caption']}}</li>
+                        <form method="post">
+                            <img src="{{ bookmark['fact_url'] }}" width="560" >
+                            <input value="{{ bookmark['caption'] }}" type="hidden" name="deleted_fact" readonly="true">
+                            <button>[-]</button>
+                        </form>
+                {% endif %}
+        {% endfor %}
+    </ul>
 </body>
 </html>

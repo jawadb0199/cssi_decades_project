@@ -10,6 +10,18 @@
   font-size: 23px;
 }
 
+#username{
+  color: black;
+  text-decoration: none;
+  text-align: left;
+  font-size: 16px;
+}
+#login_link{
+  color: black;
+  text-decoration: underline;
+  font-size: 16px;
+}
+
 #mainPic{
 width:500px;
 height:500px;
