@@ -39,10 +39,13 @@ jinja_environment = jinja2.Environment(
 def AddUserBookmark(self):
     if user:
         current_user = UserBookmarks.get_by_id(user_key)
-        variables["bookmarks"] = current_user.user_bookmarks
-        for bookmark in variables["bookmarks"]:
-            print bookmark["caption"]
-        AddBookmark(self)
+        variables_json = current_user.user_bookmarks
+        logging.info(variables_json)
+        variables = json.loads(variables_json)
+        AddUserBookmark(self)
+        logging.info(variables)
+        # for bookmark in variables["bookmarks"]:
+        #     print bookmark['caption']
         current_user.put()
         print i
         i += 1
@@ -83,7 +86,7 @@ def AddBookmark(self):
 
 class UserBookmarks(ndb.Model):
     username = ndb.StringProperty()
-    user_bookmarks = ndb.PickleProperty()
+    user_bookmarks = ndb.StringProperty()
 
 
 def UserLogin(login_dict={}):
@@ -97,11 +100,15 @@ def UserLogin(login_dict={}):
         greeting = '<p id="username" >Welcome, {}! <a id="login_link" href="{}">Sign Out</a></p>'.format(nickname, logout_url)
         user_list = UserBookmarks.query().fetch()
         print user_list
-        for user_kind in user_list:
-            for user_items in user_kind:
-                if nickname not in user_items:
-                    new_user = UserBookmarks(username=nickname, user_bookmarks=variables["bookmarks"])
-                    user_key = new_user.put()
+        # for user_kind in user_list:
+        #     for user_items in user_kind:
+        #         if nickname not in user_items:
+        #             new_user = UserBookmarks(username=nickname, user_bookmarks=variables["bookmarks"])
+        #             user_key = new_user.put()
+        if nickname not in user_list:
+            variables_json = json.dumps(variables)
+            new_user = UserBookmarks(username=nickname, user_bookmarks=variables_json)
+            user_key = new_user.put()
     else:
         login_url = users.create_login_url('/')
         greeting = '<a id="login_link" href="{}">Log in to save your Bookmarks!</a>.'.format(login_url)
@@ -339,7 +346,6 @@ class DecadeHandler(webapp2.RequestHandler):
 class BookmarkHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('/templates/to_do_list.html')
-        logging.info(variables)
         self.response.write(template.render(variables))
 
     def post(self):
@@ -350,7 +356,6 @@ class BookmarkHandler(webapp2.RequestHandler):
             if deleted_fact == bookmark['caption']:
                 variables['bookmarks'].remove(bookmark)
                 break
-        logging.info(variables)
         self.response.write(template.render(variables))
 
 
