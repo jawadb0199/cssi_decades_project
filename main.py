@@ -54,21 +54,27 @@ def AddUserBookmark(self):
 
 
 def AddBookmark(self):
+    # get caption and fact url from fixed html input values
     saved_fact = self.request.get("saved_fact")
     new_caption = self.request.get('caption')
     logging.info(saved_fact)
     logging.info(new_caption)
+    # check if item being added is already in bookmarks
+    # if no bookmarks exists = False
     if len(variables['bookmarks']) == 0:
         logging.info(new_caption)
         exists = False
     else:
         logging.info(new_caption)
+        # check to see if item is already in list of of boomarks using item caption
         for bookmark in variables['bookmarks']:
             if bookmark['caption'] == new_caption:
                 exists = True
             else:
                 exists = False
     logging.info(exists)
+    # if exists == False, function ends wihout changing bookmarks list
+    # if exists == True then item type is determined
     if not exists:
         fact_type = None
         if 'spotify' in saved_fact:
@@ -80,6 +86,7 @@ def AddBookmark(self):
             logging.info(fact_type)
             fact_type = 'picture'
         if fact_type is not None:
+            # Dictionary with caption, item url, and type is added to bookmarks list
             variables['bookmarks'].append({'caption': new_caption, 'fact_url': saved_fact, 'type': fact_type})
     return variables
 
@@ -132,10 +139,12 @@ class FeedbackHandler(webapp2.RequestHandler):
 
     def post(self):
         template = jinja_environment.get_template('/templates/output_feedback.html')
+        # retrieving user responces from html form
         name = self.request.get('name')
         email = self.request.get('email')
         rating = int(self.request.get('rating'))
         comment = self.request.get('comment')
+        # putting user responces into datastore
         new_feedback = Feedback(name=name, email=email, rating=rating, comment=comment)
         new_feedback.put()
         self.response.write(template.render())
