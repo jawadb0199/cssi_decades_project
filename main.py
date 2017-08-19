@@ -30,6 +30,7 @@ user = ''
 # nickname = ''
 variables = {"bookmarks": [
 ]}
+i = 1
 
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
@@ -38,16 +39,18 @@ jinja_environment = jinja2.Environment(
 def AddUserBookmark(self):
     if user:
         current_user = UserBookmarks.get_by_id(user_key)
-        variables = current_user.user_bookmarks
-        AddUserBookmark(self)
+        variables["bookmarks"] = current_user.user_bookmarks
         for bookmark in variables["bookmarks"]:
-            print bookmark[caption]
+            print bookmark["caption"]
+        AddBookmark(self)
         current_user.put()
+        print i
+        i += 1
     else:
-        AddUserBookmark(self)
+        AddBookmark(self)
 
 
-def AddUserBookmark(self):
+def AddBookmark(self):
     saved_fact = self.request.get("saved_fact")
     new_caption = self.request.get('caption')
     logging.info(saved_fact)
@@ -93,13 +96,16 @@ def UserLogin(login_dict={}):
         logout_url = users.create_logout_url('/')
         greeting = '<p id="username" >Welcome, {}! <a id="login_link" href="{}">Sign Out</a></p>'.format(nickname, logout_url)
         user_list = UserBookmarks.query().fetch()
-        if nickname not in user_list:
-            new_user = UserBookmarks(username=nickname, user_bookmarks=variables["bookmarks"])
-            user_key = new_user.put()
+        print user_list
+        for user_kind in user_list:
+            for user_items in user_kind:
+                if nickname not in user_items:
+                    new_user = UserBookmarks(username=nickname, user_bookmarks=variables["bookmarks"])
+                    user_key = new_user.put()
     else:
         login_url = users.create_login_url('/')
         greeting = '<a id="login_link" href="{}">Log in to save your Bookmarks!</a>.'.format(login_url)
-        # variables["bookmarks"] = []
+        variables["bookmarks"] = []
     login_dict['header'] = greeting
     return login_dict, user, nickname, user_key
 
