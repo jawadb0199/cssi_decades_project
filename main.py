@@ -15,85 +15,71 @@
 # limitations under the License.
 #
 import webapp2
-import pickle
 import json
 import logging
-import urllib2
 import jinja2
 import os
 from google.appengine.ext import ndb
 from google.appengine.api import users
 
 login_dict = {}
-user = ''
-nickname = ''
-variables = {"bookmarks": [
+bookmarks_dict = {"bookmarks": [
 ]}
-user_variables = {"bookmarks": [
-]}
-user_variables_json = ''
+# user_bookmarks_dict = {"bookmarks": [
+# ]}
 
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
 
-def UserLogin(login_dict={}, user_variables=variables):
+def UserLogin(login_dict={}, user_bookmarks_dict=bookmarks_dict):
     user = users.get_current_user()
-    # nickname = ''
-    # user_key = ''
+    global user
     if user:
         nickname = user.nickname()
+        global nickname
         logout_url = users.create_logout_url('/')
         greeting = '<p id="username" >Welcome, {}! <a id="login_link" href="{}">Sign Out</a></p>'.format(nickname, logout_url)
-        user_list = UserBookmarks.query(UserBookmarks.username == nickname).fetch()
-        logging.info(user_list)
+        user_list = UserProperties.query(UserProperties.username == nickname).fetch()
+        print user_list
         if user_list == []:
-            logging.info(user_variables)
-            user_variables_json = json.dumps(user_variables)
-            logging.info(user_variables_json)
-            new_user = UserBookmarks(username=nickname, bookmarks_dict=user_variables_json)
+            user_bookmarks_dict_json = json.dumps(user_bookmarks_dict)
+            new_user = UserProperties(username=nickname, bookmarks=user_bookmarks_dict_json)
             new_user.put()
     else:
         login_url = users.create_login_url('/')
         greeting = '<a id="login_link" href="{}">Log in to save your Bookmarks!</a>.'.format(login_url)
-        # variables["bookmarks"] = []
+        # bookmarks_dict["bookmarks"] = []
     login_dict['header'] = greeting
-    return login_dict, user, nickname
+    return login_dict
 
 
 def AddUserBookmark(self):
-    user = users.get_current_user()
-    nickname = user.nickname()
     if user:
-        user_results = UserBookmarks.query(UserBookmarks.username == nickname).fetch(limit=1)
-        for current_user in user_results:
-            user_variables_json = current_user.bookmarks_dict
-        logging.info(user_variables_json)
-        user_variables = json.loads(user_variables_json)
-        AddToBookmarkDict(self, user_variables)
-        logging.info(user_variables)
-        # for bookmark in variables["bookmarks"]:
-        #     print bookmark['caption']
-        user_variables_json = json.dumps(user_variables)
-        current_user.bookmarks_dict = user_variables_json
-        current_user.put()
-        logging.info(i)
+        LoadUserBookmarks()
+        AddToBookmarkDict(self, user_bookmarks_dict)
+        DumpUserBookmarks()
     else:
         AddToBookmarkDict(self)
 
 
-def GetUserBookmarks():
-    user = users.get_current_user()
-    nickname = user.nickname()
-    user_results = UserBookmarks.query(UserBookmarks.username == nickname).fetch(limit=1)
+def DumpUserBookmarks():
+    user_bookmarks_dict_json = json.dumps(user_bookmarks_dict)
+    current_user.bookmarks = user_bookmarks_dict_json
+    current_user.put()
+
+
+def LoadUserBookmarks():
+    user_results = UserProperties.query(UserProperties.username == nickname).fetch(limit=1)
     for current_user in user_results:
-        user_variables_json = current_user.bookmarks_dict
-    logging.info(user_variables_json)
-    user_variables = json.loads(user_variables_json)
-    return user_variables
+        global current_user
+        user_bookmarks_dict_json = current_user.bookmarks
+    user_bookmarks_dict = json.loads(user_bookmarks_dict_json)
+    global user_bookmarks_dict
+    return user_bookmarks_dict
 
 
-def AddToBookmarkDict(self, variables=variables):
+def AddToBookmarkDict(self, bookmarks_dict=bookmarks_dict):
     # get caption and fact url from fixed html input values
     saved_fact = self.request.get("saved_fact")
     new_caption = self.request.get('caption')
@@ -101,13 +87,13 @@ def AddToBookmarkDict(self, variables=variables):
     logging.info(new_caption)
     # check if item being added is already in bookmarks
     # if no bookmarks exists = False
-    if len(variables['bookmarks']) == 0:
+    if len(bookmarks_dict['bookmarks']) == 0:
         logging.info(new_caption)
         exists = False
     else:
         logging.info(new_caption)
         # check to see if item is already in list of of boomarks using item caption
-        for bookmark in variables['bookmarks']:
+        for bookmark in bookmarks_dict['bookmarks']:
             if bookmark['caption'] == new_caption:
                 exists = True
             else:
@@ -127,40 +113,49 @@ def AddToBookmarkDict(self, variables=variables):
             fact_type = 'picture'
         if fact_type is not None:
             # Dictionary with caption, item url, and type is added to bookmarks list
-            variables['bookmarks'].append({'caption': new_caption, 'fact_url': saved_fact, 'type': fact_type})
-    return variables
+            bookmarks_dict['bookmarks'].append({'caption': new_caption, 'fact_url': saved_fact, 'type': fact_type})
+    return bookmarks_dict
 
 
-def DeleteUserBookmark(variables=variables):
+def DeleteUserBookmark(self, template):
+    bookmark_page_rendered_dict = {"login_dict": login_dict, "bookmarks_dict": bookmarks_dict}
+    if user:
+        LoadUserBookmarks()
+        DeleteFromBookmarkDict(self, user_bookmarks_dict)
+        DumpUserBookmarks()
+        bookmark_page_rendered_dict["bookmarks_dict"] = user_bookmarks_dict
+        self.response.write(template.render(bookmark_page_rendered_dict))
+    else:
+        DeleteFromBookmarkDict(self)
+        self.response.write(template.render(bookmark_page_rendered_dict))
+
+
+def DeleteFromBookmarkDict(self, bookmarks_dict=bookmarks_dict):
     deleted_fact = self.request.get("deleted_fact")
-    for bookmark in variables['bookmarks']:
+    for bookmark in bookmarks_dict['bookmarks']:
         if deleted_fact == bookmark['caption']:
-            variables['bookmarks'].remove(bookmark)
+            bookmarks_dict['bookmarks'].remove(bookmark)
             break
-    return variables
+    return bookmarks_dict
 
 
 class BookmarkHandler(webapp2.RequestHandler):
     def get(self):
         template = jinja_environment.get_template('/templates/to_do_list.html')
         UserLogin(login_dict)
-        if users.get_current_user():
-            UserLogin(login_dict)
-            GetUserBookmarks()
-            self.response.write(template.render(user_variables))
+        bookmark_page_rendered_dict = {"login_dict": login_dict, "bookmarks_dict": bookmarks_dict}
+        if user:
+            LoadUserBookmarks()
+            DumpUserBookmarks()
+            bookmark_page_rendered_dict["bookmarks_dict"] = user_bookmarks_dict
+            self.response.write(template.render(bookmark_page_rendered_dict))
         else:
-            self.response.write(template.render(variables))
+            self.response.write(template.render(bookmark_page_rendered_dict))
 
     def post(self):
         template = jinja_environment.get_template('/templates/to_do_list.html')
         UserLogin(login_dict)
-        if users.get_current_user():
-            GetUserBookmarks()
-            DeleteUserBookmark(user_variables)
-            self.response.write(template.render(user_variables))
-        else:
-            DeleteUserBookmark()
-            self.response.write(template.render(variables))
+        DeleteUserBookmark(self, template)
 
 
 class FeedbackHandler(webapp2.RequestHandler):
@@ -170,12 +165,12 @@ class FeedbackHandler(webapp2.RequestHandler):
 
     def post(self):
         template = jinja_environment.get_template('/templates/output_feedback.html')
-        # retrieving user responces from html form
+        # retrieving user responses from html form
         name = self.request.get('name')
         email = self.request.get('email')
         rating = int(self.request.get('rating'))
         comment = self.request.get('comment')
-        # putting user responces into datastore
+        # putting user responses into datastore
         new_feedback = Feedback(name=name, email=email, rating=rating, comment=comment)
         new_feedback.put()
         self.response.write(template.render())
@@ -189,9 +184,9 @@ class Feedback(ndb.Model):
     comment = ndb.StringProperty()
 
 
-class UserBookmarks(ndb.Model):
+class UserProperties(ndb.Model):
     username = ndb.StringProperty()
-    bookmarks_dict = ndb.StringProperty()
+    bookmarks = ndb.StringProperty()
 
 
 class HomePageHandler(webapp2.RequestHandler):

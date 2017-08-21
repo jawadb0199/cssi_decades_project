@@ -1,15 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="/resources/to_do_list.css">
+    <link rel="stylesheet" href="/resources/bookmarks.css">
     <title></title>
 </head>
 <body>
-    {{ header }}
+    {{ login_dict['header'] }}
     <a id="home_button" href="/">Return to Homepage</a>
-    <h1>Bookmark Section </h1>
+    <br>
+    <h1>Bookmarks</h1>
     <ul>
-        {% for bookmark in bookmarks %}
+        {% for bookmark in bookmarks_dict['bookmarks'] %}
         <!-- <div>{{bookmark}}</div> -->
                 {% if bookmark['type'] == 'spotify' %}
                     <li>{{ bookmark['caption'] }}</li>

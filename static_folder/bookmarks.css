@@ -2,6 +2,10 @@ h1{
   font-family: fantasy;
   text-align: center;
   color: white;
+  display: block;
+  font-size: 50px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
 body{
@@ -13,20 +17,30 @@ body{
 
 li{
   color: white;
+  font-size: 20px;
+  padding-top: 14px;
+  padding-bottom: 8px;
 }
 
 #home_button{
     color: white;
     text-decoration: underline;
-    text-align: right;
+    display: inline;
+    float: right;
+    margin-top: 10px;
+    margin-right: 10px;
 }
 
 #username{
   color: white;
   text-decoration: none;
   text-align: left;
-  font-size: 16px;
+  display: inline-block;
+  margin-top: 10px;
+  margin-left: 10px;
+  font-size: 16px;k;
 }
+
 #login_link{
   color: white;
   text-decoration: underline;
