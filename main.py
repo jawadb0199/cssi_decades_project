@@ -141,7 +141,7 @@ def DeleteFromBookmarkDict(self, bookmarks_dict=bookmarks_dict):
 
 class BookmarkHandler(webapp2.RequestHandler):
     def get(self):
-        template = jinja_environment.get_template('/templates/to_do_list.html')
+        template = jinja_environment.get_template('/templates/bookmarks.html')
         UserLogin(login_dict)
         bookmark_page_rendered_dict = {"login_dict": login_dict, "bookmarks_dict": bookmarks_dict}
         if user:
@@ -153,7 +153,7 @@ class BookmarkHandler(webapp2.RequestHandler):
             self.response.write(template.render(bookmark_page_rendered_dict))
 
     def post(self):
-        template = jinja_environment.get_template('/templates/to_do_list.html')
+        template = jinja_environment.get_template('/templates/bookmarks.html')
         UserLogin(login_dict)
         DeleteUserBookmark(self, template)
 
