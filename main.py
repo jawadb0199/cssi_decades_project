@@ -26,34 +26,74 @@ from google.appengine.api import users
 
 login_dict = {}
 user = ''
-# user_key = ''
-# nickname = ''
+nickname = ''
 variables = {"bookmarks": [
 ]}
-i = 1
+user_variables = {"bookmarks": [
+]}
+user_variables_json = ''
 
 jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
 
-def AddUserBookmark(self):
+def UserLogin(login_dict={}, user_variables=variables):
+    user = users.get_current_user()
+    # nickname = ''
+    # user_key = ''
     if user:
-        current_user = UserBookmarks.get_by_id(user_key)
-        variables_json = current_user.user_bookmarks
-        logging.info(variables_json)
-        variables = json.loads(variables_json)
-        AddUserBookmark(self)
-        logging.info(variables)
+        nickname = user.nickname()
+        logout_url = users.create_logout_url('/')
+        greeting = '<p id="username" >Welcome, {}! <a id="login_link" href="{}">Sign Out</a></p>'.format(nickname, logout_url)
+        user_list = UserBookmarks.query(UserBookmarks.username == nickname).fetch()
+        logging.info(user_list)
+        if user_list == []:
+            logging.info(user_variables)
+            user_variables_json = json.dumps(user_variables)
+            logging.info(user_variables_json)
+            new_user = UserBookmarks(username=nickname, bookmarks_dict=user_variables_json)
+            new_user.put()
+    else:
+        login_url = users.create_login_url('/')
+        greeting = '<a id="login_link" href="{}">Log in to save your Bookmarks!</a>.'.format(login_url)
+        # variables["bookmarks"] = []
+    login_dict['header'] = greeting
+    return login_dict, user, nickname
+
+
+def AddUserBookmark(self):
+    user = users.get_current_user()
+    nickname = user.nickname()
+    if user:
+        user_results = UserBookmarks.query(UserBookmarks.username == nickname).fetch(limit=1)
+        for current_user in user_results:
+            user_variables_json = current_user.bookmarks_dict
+        logging.info(user_variables_json)
+        user_variables = json.loads(user_variables_json)
+        AddToBookmarkDict(self, user_variables)
+        logging.info(user_variables)
         # for bookmark in variables["bookmarks"]:
         #     print bookmark['caption']
+        user_variables_json = json.dumps(user_variables)
+        current_user.bookmarks_dict = user_variables_json
         current_user.put()
-        print i
-        i += 1
+        logging.info(i)
     else:
-        AddBookmark(self)
+        AddToBookmarkDict(self)
 
 
-def AddBookmark(self):
+def GetUserBookmarks():
+    user = users.get_current_user()
+    nickname = user.nickname()
+    user_results = UserBookmarks.query(UserBookmarks.username == nickname).fetch(limit=1)
+    for current_user in user_results:
+        user_variables_json = current_user.bookmarks_dict
+    logging.info(user_variables_json)
+    user_variables = json.loads(user_variables_json)
+    return user_variables
+
+
+def AddToBookmarkDict(self, variables=variables):
     # get caption and fact url from fixed html input values
     saved_fact = self.request.get("saved_fact")
     new_caption = self.request.get('caption')
@@ -91,45 +131,36 @@ def AddBookmark(self):
     return variables
 
 
-class UserBookmarks(ndb.Model):
-    username = ndb.StringProperty()
-    user_bookmarks = ndb.StringProperty()
+def DeleteUserBookmark(variables=variables):
+    deleted_fact = self.request.get("deleted_fact")
+    for bookmark in variables['bookmarks']:
+        if deleted_fact == bookmark['caption']:
+            variables['bookmarks'].remove(bookmark)
+            break
+    return variables
 
 
-def UserLogin(login_dict={}):
-    user = users.get_current_user()
-    nickname = ''
-    user_key = ''
-    if user:
-        print user
-        nickname = user.nickname()
-        logout_url = users.create_logout_url('/')
-        greeting = '<p id="username" >Welcome, {}! <a id="login_link" href="{}">Sign Out</a></p>'.format(nickname, logout_url)
-        user_list = UserBookmarks.query().fetch()
-        print user_list
-        # for user_kind in user_list:
-        #     for user_items in user_kind:
-        #         if nickname not in user_items:
-        #             new_user = UserBookmarks(username=nickname, user_bookmarks=variables["bookmarks"])
-        #             user_key = new_user.put()
-        if nickname not in user_list:
-            variables_json = json.dumps(variables)
-            new_user = UserBookmarks(username=nickname, user_bookmarks=variables_json)
-            user_key = new_user.put()
-    else:
-        login_url = users.create_login_url('/')
-        greeting = '<a id="login_link" href="{}">Log in to save your Bookmarks!</a>.'.format(login_url)
-        variables["bookmarks"] = []
-    login_dict['header'] = greeting
-    return login_dict, user, nickname, user_key
+class BookmarkHandler(webapp2.RequestHandler):
+    def get(self):
+        template = jinja_environment.get_template('/templates/to_do_list.html')
+        UserLogin(login_dict)
+        if users.get_current_user():
+            UserLogin(login_dict)
+            GetUserBookmarks()
+            self.response.write(template.render(user_variables))
+        else:
+            self.response.write(template.render(variables))
 
-
-class Feedback(ndb.Model):
-    # Feedback to send to datastore
-    email = ndb.StringProperty()
-    name = ndb.StringProperty()
-    rating = ndb.IntegerProperty()
-    comment = ndb.StringProperty()
+    def post(self):
+        template = jinja_environment.get_template('/templates/to_do_list.html')
+        UserLogin(login_dict)
+        if users.get_current_user():
+            GetUserBookmarks()
+            DeleteUserBookmark(user_variables)
+            self.response.write(template.render(user_variables))
+        else:
+            DeleteUserBookmark()
+            self.response.write(template.render(variables))
 
 
 class FeedbackHandler(webapp2.RequestHandler):
@@ -148,6 +179,19 @@ class FeedbackHandler(webapp2.RequestHandler):
         new_feedback = Feedback(name=name, email=email, rating=rating, comment=comment)
         new_feedback.put()
         self.response.write(template.render())
+
+
+class Feedback(ndb.Model):
+    # Feedback to send to datastore
+    email = ndb.StringProperty()
+    name = ndb.StringProperty()
+    rating = ndb.IntegerProperty()
+    comment = ndb.StringProperty()
+
+
+class UserBookmarks(ndb.Model):
+    username = ndb.StringProperty()
+    bookmarks_dict = ndb.StringProperty()
 
 
 class HomePageHandler(webapp2.RequestHandler):
@@ -350,22 +394,6 @@ class DecadeHandler(webapp2.RequestHandler):
     def post(self):
         template = jinja_environment.get_template('/templates/spotify.html')
         self.response.write(template.render())
-
-
-class BookmarkHandler(webapp2.RequestHandler):
-    def get(self):
-        template = jinja_environment.get_template('/templates/to_do_list.html')
-        self.response.write(template.render(variables))
-
-    def post(self):
-        template = jinja_environment.get_template('/templates/to_do_list.html')
-        deleted_fact = self.request.get("deleted_fact")
-        # logging.info(deleted_fact)
-        for bookmark in variables['bookmarks']:
-            if deleted_fact == bookmark['caption']:
-                variables['bookmarks'].remove(bookmark)
-                break
-        self.response.write(template.render(variables))
 
 
 app = webapp2.WSGIApplication([
