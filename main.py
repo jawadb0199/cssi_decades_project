@@ -32,44 +32,72 @@ jinja_environment = jinja2.Environment(
     loader=jinja2.FileSystemLoader(os.path.dirname(__file__)))
 
 
+# DataStore Entity Class to store feedback
+class Feedback(ndb.Model):
+    # Feedback Properties
+    email = ndb.StringProperty()
+    name = ndb.StringProperty()
+    rating = ndb.IntegerProperty()
+    comment = ndb.StringProperty()
+
+
+# DataStore Entity Class to store user information
+class UserProperties(ndb.Model):
+    # User Properties
+    username = ndb.StringProperty()
+    bookmarks = ndb.StringProperty()
+
+
+# UserLogin function to be run on every page, so user can be logged in on every page
+# and be able to add bookmarks and log out
 def UserLogin(login_dict={}, user_bookmarks_dict=bookmarks_dict):
     user = users.get_current_user()
     global user
+    # if the user is logged in
     if user:
         nickname = user.nickname()
         global nickname
+        # HTML to display username and sign out button
         logout_url = users.create_logout_url('/')
         greeting = '<p id="username" >Welcome, {}! <a id="login_link" href="{}">Sign Out</a></p>'.format(nickname, logout_url)
+        # search DataStore for specific user, to see if this is their first login
         user_list = UserProperties.query(UserProperties.username == nickname).fetch()
         print user_list
+        # if list of user entities returned by query is empty (current user doesn't exist), make new user entity
         if user_list == []:
+            # bookmarks  made before logging, are added to the user's list of
             user_bookmarks_dict_json = json.dumps(user_bookmarks_dict)
+            # create new UserProperties entity
             new_user = UserProperties(username=nickname, bookmarks=user_bookmarks_dict_json)
             new_user.put()
+    # if no user logged in
     else:
+        # HTML to display sign in button
         login_url = users.create_login_url('/')
         greeting = '<a id="login_link" href="{}">Log in to save your Bookmarks!</a>.'.format(login_url)
         # bookmarks_dict["bookmarks"] = []
+    # Dictionary to pass to template to display log in/out url
     login_dict['header'] = greeting
     return login_dict
 
 
+# Function to add new bookmark to user's bookmarks property
 def AddUserBookmark(self):
+    # if user is logged in
     if user:
+        # Get user's bookmarks property, then add bookmark to user_bookmarks_dict, then update user's bookmark property
         LoadUserBookmarks()
         AddToBookmarkDict(self, user_bookmarks_dict)
         DumpUserBookmarks()
+    # if user not logged in
     else:
+        # add bookmark without Load/Dump user entity json
         AddToBookmarkDict(self)
 
 
-def DumpUserBookmarks():
-    user_bookmarks_dict_json = json.dumps(user_bookmarks_dict)
-    current_user.bookmarks = user_bookmarks_dict_json
-    current_user.put()
-
-
+# Laod user's bookmarks dictionary
 def LoadUserBookmarks():
+    # get user's
     user_results = UserProperties.query(UserProperties.username == nickname).fetch(limit=1)
     for current_user in user_results:
         global current_user
@@ -77,6 +105,13 @@ def LoadUserBookmarks():
     user_bookmarks_dict = json.loads(user_bookmarks_dict_json)
     global user_bookmarks_dict
     return user_bookmarks_dict
+
+
+# Dump user
+def DumpUserBookmarks():
+    user_bookmarks_dict_json = json.dumps(user_bookmarks_dict)
+    current_user.bookmarks = user_bookmarks_dict_json
+    current_user.put()
 
 
 def AddToBookmarkDict(self, bookmarks_dict=bookmarks_dict):
@@ -174,19 +209,6 @@ class FeedbackHandler(webapp2.RequestHandler):
         new_feedback = Feedback(name=name, email=email, rating=rating, comment=comment)
         new_feedback.put()
         self.response.write(template.render())
-
-
-class Feedback(ndb.Model):
-    # Feedback to send to datastore
-    email = ndb.StringProperty()
-    name = ndb.StringProperty()
-    rating = ndb.IntegerProperty()
-    comment = ndb.StringProperty()
-
-
-class UserProperties(ndb.Model):
-    username = ndb.StringProperty()
-    bookmarks = ndb.StringProperty()
 
 
 class HomePageHandler(webapp2.RequestHandler):
